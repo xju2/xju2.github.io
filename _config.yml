@@ -80,31 +80,31 @@ analytics:
 author:
   name             : "Xiangyang Ju"
   avatar           : "profile.jpg"
-  bio              : "Your biography for the left-hand sidebar"
-  location         : "Location"
-  employer         :
-  googlescholar    : "http://yourfullgooglescholarurl.com"
-  email            :
-  uri              :
+  bio              : "I am a Ph.D candidate on High Energy Physics at University of Wiconsin-Madison"
+  location         : "Berkeley, CA, USA"
+  employer         : "University of Wisconsin-Madison"
+  googlescholar    : "https://scholar.google.com/citations?user=WjgQ-Q726b0C"
+  email            : "xiangyang.ju@gmail.com"
+  uri              : 
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
-  facebook         :
+  facebook         : "https://www.facebook.com/lawrence.ju"
   foursquare       :
-  github           : "academicpages"
-  google_plus      :
+  github           : "xju2"
+  google_plus      : "https://plus.google.com/+XiangyangJu"
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         :
-  orcid            : "http://orcid.org/yourorcidurl"
+  linkedin         : "www.linkedin.com/in/xiangyangju2015"
+  orcid            : "http://orcid.org/0000-0002-9745-1638"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "replacethistwitterhandle"
+  twitter          : 
   vine             :
   weibo            :
   xing             :
