@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Xiangyang Ju"
+title                    : "Home"
 title_separator          : "-"
 name                     : &name "Xiangyang Ju"
 description              : &description "personal description"
