@@ -1,5 +1,5 @@
 pub_date	title	venue	excerpt	citation	url_slug	paper_url
-2010-10	Measurement of the W &rarr; lv and Z &rarr; ll production cross section in proton-proton collision at sqrt(s) = 7 TeV with the ATLAS detector	JHEP		JHEP 1012 (2010) 060	p1	https://arxiv.org/abs/1010.2130
-2011-09	Search for the Standard Model Higgs boson in the decay channel H->ZZ->4l with the ATLAS detector	Phys.Lett.B		Phys.Lett.B 705 (2011) 435-451	p2	http://inspirehep.net/record/929699
-2012-04	Search for the Standard Model Higgs boson in the decay channel H->ZZ->4l with 4.8 fb^-1 of pp collisions at sqrt(s) = 7 TeV with ATLAS	Phys.Lett.B		Phys.Lett.B 710 (2012) 383-402	p3	http://www.sciencedirect.com/science/article/pii/S0370269312002560
-2017-07	Search for heavy ZZ resonances in the llll and llvv final state using proton-proton collisions at sqrt(s) = 13 TeV with the ATLAS detector	EPJC	See link		j1	
+2010-12-14	Measurement of the W &rarr; lv and Z &rarr; ll production cross section in proton-proton collision at sqrt(s) = 7 TeV with the ATLAS detector	JHEP		ATLAS Collaboration, JHEP 1012 (2010) 060	p1	https://link.springer.com/article/10.1007/JHEP12(2010)060
+2011-11-24	Search for the Standard Model Higgs boson in the decay channel H->ZZ->4l with the ATLAS detector	Phys.Lett.B		ATLAS Collaboration, Phys.Lett.B 705 (2011) 435-451	p2	http://www.sciencedirect.com/science/article/pii/S0370269311012780
+2012-04-12	Search for the Standard Model Higgs boson in the decay channel H->ZZ->4l with 4.8 fb^-1 of pp collisions at sqrt(s) = 7 TeV with ATLAS	Phys.Lett.B		Phys.Lett.B 710 (2012) 383-402	p3	http://www.sciencedirect.com/science/article/pii/S0370269312002560
+2017-07-01	Search for heavy ZZ resonances in the llll and llvv final state using proton-proton collisions at sqrt(s) = 13 TeV with the ATLAS detector	EPJC	See link		j1	
