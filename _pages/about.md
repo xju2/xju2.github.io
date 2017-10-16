@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "This is a personal website for Xiangyang Ju."
+title: "A nutshell introduction to my research interests"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
