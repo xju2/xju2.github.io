@@ -11,30 +11,20 @@ redirect_from:
 
 Education
 ======
-* B.S. in Github, Github University, 2012
-* M.S. in Jekyll, Github University, 2014
-* Ph.D in Version Control Theory, Github University, 2018 (expected)
+* B.S. in Physics, Nanjing University, China, 2009
+* Ph.D in Physics, University of Wisconsin-Madision, 2018 (expected)
 
-Work experience
+Award
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Distinguished Researcher Award from the US ATLAS Center, August 2017 [link](http://www.usatlas.bnl.gov/programoffice/scholars.php)
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
-Skills
+Responsibilities and Leaderships
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* ATLAS contact for the Extended Neutral Scalar sub-group in the LHC Higgs cross section working group for beyond the Standard Model Higgs (abbreviated as LHCHXSWG3), since October 2017
+* Editor and analysis contact, publication on “Search for heavy ZZ resonances in the llll and llvv final states”, July 2017. (to be submitted to EPJC)
+* Analysis contact, conference note on “Study of Higgs boson properties and search for highmass scalar resonances in llll final state at sqrt(s) = 13 TeV” for 2016 International Conference on High Energy Physics, Chicago, US, August 2016.
+* Session convener on beyond the Standard Model (SM) analyses in the ATLAS H &rarr; ZZ workshop, Munich, German, April 2016.
+* Editor, publicationon “Dark Matter Benchmark Models for Early LHC Run-2 Searches:Report of the ATLAS/CMS Dark Ma er Forum”, July 2015, arXiv:1507.00966
 
 Publications
 ======
