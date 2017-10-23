@@ -28,12 +28,12 @@ Responsibilities and Leaderships
 
 Publications
 ======
-  <ol>{% for post in site.publications %}
+  <ol>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
 {% endfor %}</ol>
   
 Talks
 ======
-  <ol>{% for post in site.talks %}
+  <ol>{% for post in site.talks reversed %}
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ol>
