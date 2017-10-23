@@ -28,9 +28,11 @@ Responsibilities and Leaderships
 
 Publications
 ======
-  <ul>{% for post in site.publications %}
+  <ol>
+{% for post in site.publications %}
     {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+{% endfor %}
+  </ol>
   
 Talks
 ======
