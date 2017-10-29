@@ -12,5 +12,6 @@ redirect_from:
 in the ATLAS experiment at CERN, Switzerland, is looking a postdoctral position. -->
 ![]({{site.url}}/images/my_timeline.png)
 
-Below shows some beautiful results to which I have make significant contributions.
+<!--Below shows some beautiful results to which I have make significant contributions.
 ![]({{site.url}}/images/4l-FixedScale-NoMuProf2.gif)
+-->
