@@ -1,10 +1,11 @@
 ---
 layout: archive
-title: "Publications (with my direct major contributions)"
+title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
 
+Only publications with my direct contributions are listed
 {% if author.googlescholar %}
   You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
 {% endif %}

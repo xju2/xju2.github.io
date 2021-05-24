@@ -80,7 +80,7 @@ analytics:
 author:
   name             : "Xiangyang Ju"
   avatar           : "profile.png"
-  bio              : "A Ph.D candidate at U. of Wiconsin-Madison"
+  bio              : "Ph.D in Physics"
   location         : "Berkeley, CA, USA"
   employer         : 
   googlescholar    : "https://scholar.google.com/citations?user=WjgQ-Q726b0C"
@@ -118,6 +118,12 @@ include:
   - _pages
   - files
 exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
   - "*.sublime-project"
   - "*.sublime-workspace"
   - .asset-cache
@@ -130,7 +136,6 @@ exclude:
   - Capfile
   - CHANGELOG
   - config
-  - Gemfile
   - Gruntfile.js
   - gulpfile.js
   - LICENSE
@@ -197,7 +202,7 @@ defaults:
       author_profile: true
       read_time: true
       comments: true
-      share: true
+      share: false
       related: true
   # _pages
   - scope:
@@ -213,7 +218,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      share: true
+      share: false
       comments: true
   # _publications
   - scope:
@@ -222,7 +227,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      share: true
+      share: false
       comments: true
   # _portfolio
   - scope:
@@ -231,7 +236,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      share: true
+      share: false
       comment: true
   # _talks
   - scope:
@@ -240,7 +245,8 @@ defaults:
     values:
       layout: talk
       author_profile: true
-      share: true
+      share: false
+      comment: true
 
 # Sass/SCSS
 sass:
@@ -256,7 +262,7 @@ timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database
 
 
 # Plugins
-gems:
+plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
