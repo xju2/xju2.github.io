@@ -101,8 +101,9 @@ for row, item in publications.iterrows():
     md += "\nRecommended citation: " + item.citation
     
     md_filename = os.path.basename(md_filename)
+    print(md_filename)
        
-    with open("../_publications/" + md_filename, 'w') as f:
-        f.write(md)
+    # with open("../_publications/" + md_filename, 'w') as f:
+    #     f.write(md)
 
 
