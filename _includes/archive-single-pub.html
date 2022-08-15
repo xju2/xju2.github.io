@@ -13,7 +13,7 @@
     <p>
       {{ title }}. Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}. 
       {% if post.link %}
-      <a href="{{ post.link }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="external link"></i><span class="sr-only">Permalink</span></a>
+      <a href="{{ post.link }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="ToPDF"></i><span class="sr-only">Permalink</span></a>
       {% endif %}
     </p>
 
