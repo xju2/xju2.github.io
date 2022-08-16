@@ -38,7 +38,7 @@
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
     {% endif %}
     <!-- {% if post.date %}<p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ post.date | date: '%B %d, %Y' }}</p>{% endif %} -->
-    <p class="archive__item-excerpt" itemprop="description">{{post.prensentor}}, {{post.type}}, {{ post.conference }}, {{ post.venue }},  {{post.location}}, {{ post.date | date: '%B %d, %Y' }} 
+    <p class="archive__item-excerpt" itemprop="description">{{post.prensentor}}, {{ post.conference }}, {{ post.venue }},  {{post.location}}, {{ post.date | date: '%B %d, %Y' }} 
       
     {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>{% endif %}
 	</li>
