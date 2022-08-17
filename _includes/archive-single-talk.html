@@ -29,7 +29,7 @@
     <h2 class="archive__item-title" itemprop="headline">
       {% if post.link %}
         <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
-        <a href="{{ post.link }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="ToPDF"></i><span class="sr-only">ToPDF</span></a>
+        <a href="{{ post.link }}" rel="permalink"><i class="fas fa-file-pdf" aria-hidden="true" title="ToPDF"></i><span class="sr-only">ToPDF</span></a>
       {% else %}
         <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
       {% endif %}
