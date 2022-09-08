@@ -9,9 +9,9 @@ redirect_from:
 ---
 {% include base_path %}
 
-I am a Computing System Engineer at Lawrence Berkeley National Laboratory.
-My research interests are to use advanced computing and Machine Learning to solve computing problems in particle physics
-and to understand the electroweak interactions through the Large Hadron Collider.
+I am a Computing System Engineer in the Physics & X-Ray Science Computing group in the Scientific Data Division at Lawrence Berkeley National Laboratory, focusing on particle physics and Machine Learning. In particle physics, my research interest is to study the Higgs boson properties and to understand the electroweak interactions, through the ATLAS experiment at the Large Hadron Collider, located at the border of Switzerland and France. In machine learning, I am interested in developing deep learning models and high performance software to enable precision physics measurements and the search for enw physics. 
+
+I have been enjoying working with undergraduate and graduate students coming from global universities on various machine learning and physics projects. 
 
 
 # Education
