@@ -14,3 +14,4 @@ gem install jekyll
 The run `bundle exec jekyll serve --livereload`.
 
 
+In Epic, simply run the above commands in the terminal.
