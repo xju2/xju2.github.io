@@ -7,7 +7,7 @@ author_profile: true
 
 {% include base_path %}
 
-Last updated on May 19, 2023.
+Last update is on May 19, 2023.
 
 
 <style>
@@ -64,8 +64,8 @@ Last updated on May 19, 2023.
 </style>
 
 
-{% assign ongoing_students = site.students | where_exp: "student", "student.finished != true" %}
-{% assign finished_students = site.students | where_exp: "student", "student.finished == true" %}
+{% assign ongoing_students = site.students | where_exp: "student", "student.finished != true" | sort: 'date' %}
+{% assign finished_students = site.students | where_exp: "student", "student.finished == true" | sort: 'date' %}
 
 <h2> Ongoing Students </h2>
   
@@ -75,8 +75,7 @@ Last updated on May 19, 2023.
 
 
   <h2> Graduated Students </h2>
-  Ordered by their joining date.
-  
+
   <table class="students-table">
     <thead>
       <tr>
@@ -89,7 +88,7 @@ Last updated on May 19, 2023.
       </tr>
     </thead>
     <tbody>
-      {% for student in finished_students %}
+      {% for student in finished_students reversed %}
         <tr>
           {% include archive-single-student.html %}
         </tr>
