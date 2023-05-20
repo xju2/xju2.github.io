@@ -1,0 +1,98 @@
+---
+layout: archive
+title: "Student Projects"
+permalink: /students/
+author_profile: true
+---
+
+{% include base_path %}
+
+Last updated on May 19, 2023.
+
+
+<style>
+  .students-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+  .students-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .students-table th,
+  .students-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+
+  .students-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+  .students-table td:first-child { /* Style for first column */
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  .students-table td:first-child:hover::after { /* Tooltip-like effect */
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 20%;  
+    top: 10%;
+    background-color: #ff7f50;
+    color: #fff;
+    font-size: 14px;
+    z-index: 9999;
+  }
+  .students-table td:nth-child(3) { /* Style for 3rd and 4th column */
+    white-space: nowrap;
+  }
+  .students-table td:nth-child(4) { /* Style for 3rd and 4th column */
+    white-space: nowrap;
+  } 
+
+  .students-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .students-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+</style>
+
+
+{% assign ongoing_students = site.students | where_exp: "student", "student.finished != true" %}
+{% assign finished_students = site.students | where_exp: "student", "student.finished == true" %}
+
+<h2> Ongoing Students </h2>
+  
+  {% for student in ongoing_students reversed %}
+    {% include archive-single-student.html %}
+  {% endfor %}
+
+
+  <h2> Graduated Students </h2>
+  Ordered by their joining date.
+  
+  <table class="students-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Project</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Current Position</th>
+        <th>Paper</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for student in finished_students %}
+        <tr>
+          {% include archive-single-student.html %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>

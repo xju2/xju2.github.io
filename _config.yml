@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Home"
+title                    : "HOME"
 title_separator          : "-"
 name                     : &name "Xiangyang Ju"
 description              : &description "personal description"
@@ -195,6 +195,9 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
+  students:
+    output: true
+    permalink: /:collection/:path/
 
 
 # Defaults
@@ -250,6 +253,15 @@ defaults:
       type: talks
     values:
       layout: talk
+      author_profile: true
+      share: false
+      comment: true
+  # _students
+  - scope:
+      path: ""
+      type: students
+    values:
+      layout: single
       author_profile: true
       share: false
       comment: true
