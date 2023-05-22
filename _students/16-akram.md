@@ -4,7 +4,7 @@ name: "Adeel Akram"
 project: Exchange 
 permalink: /students/s16/akram/
 date: 2020-11-17
-end_date: 2023-06-01
+end_date: 
 institution: Uppasala University
 department: Physics
 position: Graduate Student
