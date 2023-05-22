@@ -1,13 +1,14 @@
 ---
 id: 1
 name: "Jacob Lyons"
-collection: students
-project_tag: "ML"
+project: "URAP"
 permalink: /students/s1/lyons
 date: 2018-08-31
 end_date: 2022-08-31
-institution: University of California, Berkeley
+institution: UC, Berkeley
 position: Undergraduate Student
 current_position: Graduate Student @ UC Santa Barbara
 finished: true
+excerpt: "Machine Learning for High Energy Physics"
+paper: arXiv:2301.00501
 ---

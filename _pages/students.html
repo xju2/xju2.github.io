@@ -69,9 +69,26 @@ Last update is on May 19, 2023.
 
 <h2> Ongoing Students </h2>
   
-  {% for student in ongoing_students reversed %}
-    {% include archive-single-student.html %}
-  {% endfor %}
+<table class="students-table">
+  <thead>
+    <tr>
+      <th> Name </th>
+      <th> Research </th>
+      <th> Start Date </th>
+      <th> End Date </th>
+      <th> Current Position </th>
+      <th> Paper </th>
+      <th> Project </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in ongoing_students reversed %}
+      <tr>
+        {% include archive-single-student.html %}
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
 
   <h2> Graduated Students </h2>
@@ -79,12 +96,13 @@ Last update is on May 19, 2023.
   <table class="students-table">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Project</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-        <th>Current Position</th>
-        <th>Paper</th>
+        <th> Name </th>
+        <th> Research </th>
+        <th> Start Date </th>
+        <th> End Date </th>
+        <th> Current Position </th>
+        <th> Paper </th>
+        <th> Project </th>
       </tr>
     </thead>
     <tbody>
