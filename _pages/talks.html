@@ -9,23 +9,28 @@ author_profile: true
 
 Only <a href="#talks"> talks </a> and <a href="#posters"> posters </a> and 
 <a href="#tutorials"> tutorials </a> I gave or I made major contributions to 
-at international conferences and workshops are listed.
+at international conferences and workshops are listed in a reversed order.
 
 <div id = "talks"> <h1 class="archive__subtitle">Talks</h1> </div>
 {% assign talks = site.talks | where: "type", "Talk" %}
+<ol reversed>
 {% for post in talks reversed %}
   {% include archive-single-talk.html %}
 {% endfor %}
-
+</ol>
 
 <div id = "posters"> <h1 class="archive__subtitle">Posters</h1> </div>
 {% assign posters = site.talks | where: "type", "Poster" %}
+<ol reversed>
 {% for post in posters reversed %}
   {% include archive-single-talk.html %}
 {% endfor %}
+</ol>
 
 <div id = "tutorials"> <h1 class="archive__subtitle">Tutorials</h1> </div>
 {% assign tutorials = site.talks | where: "type", "Tutorial" %}
+<ol reversed>
 {% for post in tutorials reversed %}
   {% include archive-single-talk.html %}
 {% endfor %}
+</ol>
