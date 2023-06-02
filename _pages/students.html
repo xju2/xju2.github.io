@@ -33,11 +33,11 @@ This page lists the students I am working with now or have worked with in the pa
     border: 1px solid #ccc;
     padding: 8px;
   }
-  .students-table td:first-child { /* Style for first column */
+  .students-table td:nth-child(2) { /* Style for first column */
     font-weight: bold;
     white-space: nowrap;
   }
-  .students-table td:first-child:hover::after { /* Tooltip-like effect */
+  .students-table td:nth-child(2):hover::after { /* Tooltip-like effect */
     content: attr(data-tooltip);
     position: absolute;
     left: 20%;  
@@ -47,10 +47,10 @@ This page lists the students I am working with now or have worked with in the pa
     font-size: 14px;
     z-index: 9999;
   }
-  .students-table td:nth-child(3) { /* Style for 3rd and 4th column */
+  .students-table td:nth-child(4) { /* display full date */
     white-space: nowrap;
   }
-  .students-table td:nth-child(4) { /* Style for 3rd and 4th column */
+  .students-table td:nth-child(5) { /* display full date */
     white-space: nowrap;
   } 
 
@@ -71,9 +71,10 @@ This page lists the students I am working with now or have worked with in the pa
 
 <h2> Ongoing Students </h2>
   
-<table class="students-table">
+<table class="students-table" id="ongoingStudents">
   <thead>
     <tr>
+      <th> # </th>
       <th> Name </th>
       <th> Research </th>
       <th> Start Date </th>
@@ -92,12 +93,26 @@ This page lists the students I am working with now or have worked with in the pa
   </tbody>
 </table>
 
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+      const table = document.getElementById('ongoingStudents');
+      const rows = table.getElementsByTagName('tr');
+
+      for (let i = rows.length - 1; i > 0; i--) {
+        const cell = document.createElement('td');
+        cell.textContent = rows.length - i;
+        rows[i].insertBefore(cell, rows[i].firstChild);
+    }
+  });
+  </script>
+
 
   <h2> Graduated Students </h2>
 
-  <table class="students-table">
+  <table class="students-table" id="outgoingStudents">
     <thead>
       <tr>
+        <th> # </th>
         <th> Name </th>
         <th> Research </th>
         <th> Start Date </th>
@@ -115,3 +130,17 @@ This page lists the students I am working with now or have worked with in the pa
       {% endfor %}
     </tbody>
   </table>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const table = document.getElementById('outgoingStudents');
+        const rows = table.getElementsByTagName('tr');
+
+        for (let i = rows.length - 1; i > 0; i--) {
+        const cell = document.createElement('td');
+        cell.textContent = rows.length - i;
+        rows[i].insertBefore(cell, rows[i].firstChild);
+    }
+    });
+
+</script>
