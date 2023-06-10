@@ -38,19 +38,13 @@
     <p>
       {{ post.authors }}, {{ title }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}. 
 
-      <!-- Open link button -->
-      {% if post.link %}
-        <button type="button" onclick="openLink('{{ post.link | escape }}')">PDF</button>
-      {% endif %}
+
 
       <!-- PDF label
       {% if post.link %}
       <a href="{{ post.link }}" rel="permalink"><i class="fas fa-file-pdf" aria-hidden="true" title="pdf"></i> <span class="sr-only">pdf</span> </a>
       {% endif %}
        -->
-
-        <!-- Button -->
-        <button type="button" onclick="showBibTex('{{ post.bibtex }}', '{{ post.id }}')">BibTeX</button>
         <!-- Placeholder for BibTeX text -->
         <pre id="bibTexContainer_{{ post.id }}" class="bibTexContainer" style="display: none;"></pre>
 
@@ -92,6 +86,14 @@
           // Add your custom code here
         }
         </script>
+        
+        <!-- Open link button -->
+        {% if post.link %}
+          <button type="button" onclick="openLink('{{ post.link | escape }}')">PDF</button>
+        {% endif %}
+        <!-- Button -->
+        <button type="button" onclick="showBibTex('{{ post.bibtex }}', '{{ post.id }}')">BibTeX</button>
+
     </p>
 	</li>
   </article>
