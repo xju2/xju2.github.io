@@ -43,13 +43,12 @@
         <button type="button" onclick="openLink('{{ post.link | escape }}')">PDF</button>
       {% endif %}
       <script>
-        // JavaScript function to handle button click
         function showBibTex(bibTex, postId) {
           var bibTexContainer = document.getElementById('bibTexContainer_' + postId);
 
           if (bibTexContainer.style.display === 'none') {
-            bibTex = bibTex.replace(/&lbrace;/g, '{').replace(/&rbrace;/g, '}'); // Unescape curly braces
-            bibTexContainer.innerHTML = bibTex;// Display new lines with line breaks
+            bibTex = bibTex.replace(/&lbrace;/g, '{').replace(/&rbrace;/g, '}'); 
+            bibTexContainer.innerHTML = bibTex;
             bibTexContainer.style.display = 'block';
             var copyButton = document.createElement('button');
             copyButton.className = 'copy-button';
@@ -64,12 +63,10 @@
           }
         }
 
-        // JavaScript function to handle open link button click
         function openLink(link) {
           window.open(link, '_blank');
         }
 
-      // JavaScript function to copy BibTeX text to clipboard
       function copyToClipboard(text) {
         var tempInput = document.createElement('textarea');
         tempInput.value = text;
@@ -77,7 +74,6 @@
         tempInput.select();
         document.execCommand('copy');
         document.body.removeChild(tempInput);
-        // Add your custom code here
       }
       </script>
 
