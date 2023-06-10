@@ -42,56 +42,49 @@
       {% if post.link %}
         <button type="button" onclick="openLink('{{ post.link | escape }}')">PDF</button>
       {% endif %}
+      <script>
+        // JavaScript function to handle button click
+        function showBibTex(bibTex, postId) {
+          var bibTexContainer = document.getElementById('bibTexContainer_' + postId);
 
-      <!-- PDF label
-      {% if post.link %}
-      <a href="{{ post.link }}" rel="permalink"><i class="fas fa-file-pdf" aria-hidden="true" title="pdf"></i> <span class="sr-only">pdf</span> </a>
-      {% endif %}
-       -->
+          if (bibTexContainer.style.display === 'none') {
+            bibTex = bibTex.replace(/&lbrace;/g, '{').replace(/&rbrace;/g, '}'); // Unescape curly braces
+            bibTexContainer.innerHTML = bibTex;// Display new lines with line breaks
+            bibTexContainer.style.display = 'block';
+            var copyButton = document.createElement('button');
+            copyButton.className = 'copy-button';
+            copyButton.textContent = 'Copy BibTeX';
+            copyButton.addEventListener('click', function() {
+              copyToClipboard(bibTex);
+            });
+            bibTexContainer.appendChild(copyButton);
+          } else {
+            bibTexContainer.innerHTML = '';
+            bibTexContainer.style.display = 'none';
+          }
+        }
+
+        // JavaScript function to handle open link button click
+        function openLink(link) {
+          window.open(link, '_blank');
+        }
+
+      // JavaScript function to copy BibTeX text to clipboard
+      function copyToClipboard(text) {
+        var tempInput = document.createElement('textarea');
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        // Add your custom code here
+      }
+      </script>
 
         <!-- Button -->
         <button type="button" onclick="showBibTex('{{ post.bibtex }}', '{{ post.id }}')">BibTeX</button>
         <!-- Placeholder for BibTeX text -->
         <pre id="bibTexContainer_{{ post.id }}" class="bibTexContainer" style="display: none;"></pre>
-
-        <script>
-          // JavaScript function to handle button click
-          function showBibTex(bibTex, postId) {
-            var bibTexContainer = document.getElementById('bibTexContainer_' + postId);
-
-            if (bibTexContainer.style.display === 'none') {
-              bibTex = bibTex.replace(/&lbrace;/g, '{').replace(/&rbrace;/g, '}'); // Unescape curly braces
-              bibTexContainer.innerHTML = bibTex;// Display new lines with line breaks
-              bibTexContainer.style.display = 'block';
-              var copyButton = document.createElement('button');
-              copyButton.className = 'copy-button';
-              copyButton.textContent = 'Copy BibTeX';
-              copyButton.addEventListener('click', function() {
-                copyToClipboard(bibTex);
-              });
-              bibTexContainer.appendChild(copyButton);
-            } else {
-              bibTexContainer.innerHTML = '';
-              bibTexContainer.style.display = 'none';
-            }
-          }
-
-          // JavaScript function to handle open link button click
-          function openLink(link) {
-            window.open(link, '_blank');
-          }
-
-        // JavaScript function to copy BibTeX text to clipboard
-        function copyToClipboard(text) {
-          var tempInput = document.createElement('textarea');
-          tempInput.value = text;
-          document.body.appendChild(tempInput);
-          tempInput.select();
-          document.execCommand('copy');
-          document.body.removeChild(tempInput);
-          // Add your custom code here
-        }
-        </script>
     </p>
 	</li>
   </article>
