@@ -12,11 +12,65 @@
 
     <p>
       {{ post.authors }}, {{ title }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}. 
+
+      <!-- Open link button -->
+      {% if post.link %}
+        <button type="button" onclick="openLink('{{ post.link | escape }}')">PDF</button>
+      {% endif %}
+
+      <!-- PDF label
       {% if post.link %}
       <a href="{{ post.link }}" rel="permalink"><i class="fas fa-file-pdf" aria-hidden="true" title="pdf"></i> <span class="sr-only">pdf</span> </a>
       {% endif %}
-    </p>
+       -->
 
+        <!-- Button -->
+        <button type="button" onclick="showBibTex('{{ post.bibtex }}')">BibTex</button>
+           <!-- Placeholder for BibTeX text -->
+        <pre id="bibTexContainer" style="display: none;"></pre>
+
+        <!-- Copy to clipboard button -->
+      <button type="button" id="copyButton" onclick="copyToClipboard()" style="display: none;">Copy</button>
+
+
+        <script>
+          // JavaScript function to handle button click
+          function showBibTex(bibTex) {
+            var bibTexContainer = document.getElementById('bibTexContainer');
+
+            if (bibTexContainer.style.display === 'none') {
+
+              bibTexContainer.innerHTML = bibTex;
+              bibTexContainer.style.display = 'block';
+              document.getElementById('copyButton').style.display = 'block';
+            } else {
+              bibTexContainer.innerHTML = '';
+              bibTexContainer.style.display = 'none';
+              document.getElementById('copyButton').style.display = 'none';
+            }
+          }
+
+          // JavaScript function to handle open link button click
+          function openLink(link) {
+            window.open(link, '_blank');
+          }
+
+          // JavaScript function to copy BibTeX text to clipboard
+          function copyToClipboard() {
+              var bibTexContainer = document.getElementById('bibTexContainer');
+              var range = document.createRange();
+              range.selectNode(bibTexContainer);
+              window.getSelection().removeAllRanges();
+              window.getSelection().addRange(range);
+              document.execCommand('copy');
+              window.getSelection().removeAllRanges();
+              // Add your custom code here
+          }
+        </script>
+              
+
+
+    </p>
 	</li>
   </article>
 </div>
