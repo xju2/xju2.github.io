@@ -6,6 +6,31 @@
   {% assign title = post.title %}
 {% endif %}
 
+<style>
+  .copy-button {
+    margin-top: 8px;
+    padding: 4px 8px;
+    background-color: #f1f1f1;
+    color: #666;
+    font-size: 14px;
+    font-family: monospace;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .copy-button:hover {
+    background-color: #ddd;
+  }
+
+  #bibTexContainer {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 100%;
+    overflow: auto;
+  }
+</style>
+
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
 	  <li>
@@ -25,28 +50,29 @@
        -->
 
         <!-- Button -->
-        <button type="button" onclick="showBibTex('{{ post.bibtex }}')">BibTex</button>
-           <!-- Placeholder for BibTeX text -->
-        <pre id="bibTexContainer" style="display: none;"></pre>
-
-        <!-- Copy to clipboard button -->
-      <button type="button" id="copyButton" onclick="copyToClipboard()" style="display: none;">Copy</button>
-
+        <button type="button" onclick="showBibTex('{{ post.bibtex }}', '{{ post.id }}')">BibTeX</button>
+        <!-- Placeholder for BibTeX text -->
+        <pre id="bibTexContainer_{{ post.id }}" class="bibTexContainer" style="display: none;"></pre>
 
         <script>
           // JavaScript function to handle button click
-          function showBibTex(bibTex) {
-            var bibTexContainer = document.getElementById('bibTexContainer');
+          function showBibTex(bibTex, postId) {
+            var bibTexContainer = document.getElementById('bibTexContainer_' + postId);
 
             if (bibTexContainer.style.display === 'none') {
-
-              bibTexContainer.innerHTML = bibTex;
+              bibTex = bibTex.replace(/&lbrace;/g, '{').replace(/&rbrace;/g, '}'); // Unescape curly braces
+              bibTexContainer.innerHTML = bibTex;// Display new lines with line breaks
               bibTexContainer.style.display = 'block';
-              document.getElementById('copyButton').style.display = 'block';
+              var copyButton = document.createElement('button');
+              copyButton.className = 'copy-button';
+              copyButton.textContent = 'Copy BibTeX';
+              copyButton.addEventListener('click', function() {
+                copyToClipboard(bibTex);
+              });
+              bibTexContainer.appendChild(copyButton);
             } else {
               bibTexContainer.innerHTML = '';
               bibTexContainer.style.display = 'none';
-              document.getElementById('copyButton').style.display = 'none';
             }
           }
 
@@ -55,21 +81,17 @@
             window.open(link, '_blank');
           }
 
-          // JavaScript function to copy BibTeX text to clipboard
-          function copyToClipboard() {
-              var bibTexContainer = document.getElementById('bibTexContainer');
-              var range = document.createRange();
-              range.selectNode(bibTexContainer);
-              window.getSelection().removeAllRanges();
-              window.getSelection().addRange(range);
-              document.execCommand('copy');
-              window.getSelection().removeAllRanges();
-              // Add your custom code here
-          }
+        // JavaScript function to copy BibTeX text to clipboard
+        function copyToClipboard(text) {
+          var tempInput = document.createElement('textarea');
+          tempInput.value = text;
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand('copy');
+          document.body.removeChild(tempInput);
+          // Add your custom code here
+        }
         </script>
-              
-
-
     </p>
 	</li>
   </article>
