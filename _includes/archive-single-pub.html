@@ -97,9 +97,9 @@
             var bibTexContainer = document.getElementById('bibTexContainer_' + postId);
 
             if (bibTexContainer.style.display === 'none') {
-              bibTex = bibTex.replace(/\n/g, '<br>');
-              bibTex = bibTex.replace(/&lbrace;/g, '{').replace(/&rbrace;/g, '}'); 
-              bibTexContainer.innerHTML = bibTex;
+              newbibTex = bibTex.replace(/\n/g, '<br>');
+              newbibTex = newbibTex.replace(/&lbrace;/g, '{').replace(/&rbrace;/g, '}'); 
+              bibTexContainer.innerHTML = newbibTex;
               bibTexContainer.style.display = 'block';
               var copyButton = document.createElement('button');
               copyButton.className = 'copy-button';
