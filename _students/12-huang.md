@@ -10,6 +10,6 @@ department: Physics & CS
 position: Undergraduate Student
 current_position: 
 finished: false
-excerpt: Heterogeneous GNN for Tau ID and Language Models for Physics
+excerpt: Heterogeneous GNN and Language Models for HEP
 paper:  arXiv:2301.00501
 ---
