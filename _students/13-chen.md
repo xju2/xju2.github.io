@@ -4,12 +4,12 @@ name: "Allen Chen"
 project: URAP
 permalink: /students/s13/chen/
 date: 2022-08-16
-end_date: 2023-05-15
+end_date: 
 institution: UC, Berkeley
 department: EECS
 position: Undergraduate Student
 current_position: 
-finished: true
-excerpt: development of `jax` based MC Tuner
+finished: false
+excerpt: development of `jax` based MC Tuner, hadronic interactions simulation
 paper:
 ---
