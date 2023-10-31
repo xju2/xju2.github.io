@@ -1,7 +1,7 @@
 ---
 id: 21
 name: "Tanay Appannagari"
-project: DS Discovery 2023 program
+project: DS Discovery 2023
 permalink: /students/s21/appannagari/
 date: 2022-08-28
 end_date: 
