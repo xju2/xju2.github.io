@@ -1,6 +1,6 @@
 ---
 id: 10
-name: "Tuan Pham"
+name: "Tuan Minh Pham"
 project: Co-supervised 
 permalink: /students/s10/Pham/
 date: 2022-02-14
@@ -11,5 +11,5 @@ position: Graduate Student
 current_position: 
 finished: true
 excerpt: Deep Generative Models for Hadronic Interactions
-paper: 
+paper: arxiv:2310.07553
 ---

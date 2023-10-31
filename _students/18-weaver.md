@@ -1,9 +1,9 @@
 ---
-id: 17
-name: "Yash Melkani"
+id: 18
+name: "Elizabeth Weaver"
 project: Reached out to me
-permalink: /students/s17/melkani/
-date: 2022-11-08
+permalink: /students/s18/weaver/
+date: 2022-07-31
 end_date: 
 institution: UC, Berkeley
 department: CS
