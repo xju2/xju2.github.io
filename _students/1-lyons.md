@@ -10,5 +10,5 @@ position: Undergraduate Student
 current_position: Graduate Student @ UC Santa Barbara
 finished: true
 excerpt: "Machine Learning for High Energy Physics"
-paper: arXiv:2301.00501
+paper: JINST 18 (2023) P07001
 ---
