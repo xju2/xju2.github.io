@@ -11,6 +11,9 @@ main:
 
   - title: "Teaching"
     url: /students/
+
+  - title: "Projects"
+    url: /projects/
     
   # - title: "CV"
   #   url: /cv/
