@@ -75,7 +75,7 @@
 	  <li>
 
     <p>
-      {{ post.authors }}, {{ title }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}. 
+      {{ post.authors }}. "{{ post.title }}". <i>{{ post.venue }}</i>. {{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}. 
         <!-- Open link button -->
         {% if post.link %}
           <button class="button" type="button" onclick="openLink('{{ post.link | escape }}')">PDF</button>

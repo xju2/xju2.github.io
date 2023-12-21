@@ -11,5 +11,5 @@ position: Undergraduate Student
 current_position: 
 finished: true
 excerpt: MC Tuning with MC Uncertainties, `jax` based MC Tuner
-paper: arxiv:2310.07566
+paper: arXiv:2310.07566
 ---

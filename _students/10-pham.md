@@ -11,5 +11,5 @@ position: Graduate Student
 current_position: 
 finished: true
 excerpt: Deep Generative Models for Hadronic Interactions
-paper: arxiv:2310.07553
+paper: arXiv:2310.07553
 ---
