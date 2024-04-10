@@ -1,8 +1,38 @@
 var addressPoints = [
   [
-    "Shandong, China",
-    36.0000001,
-    118.9999999
+    "Princeton, US",
+    40.3496953,
+    -74.6597376
+  ],
+  [
+    "Los Angeles, USA",
+    34.0536909,
+    -118.242766
+  ],
+  [
+    "Vancouver, Canada",
+    49.2608724,
+    -123.113952
+  ],
+  [
+    "Norfolk, US",
+    36.8448348,
+    -76.2863999
+  ],
+  [
+    "Valencia, Spain",
+    39.4697065,
+    -0.3763353
+  ],
+  [
+    "Daejeon, South Korea",
+    36.3497007,
+    127.3849016
+  ],
+  [
+    "Beijing, China",
+    40.190632,
+    116.412144
   ],
   [
     "DuPage County, IL, US",
@@ -10,34 +40,9 @@ var addressPoints = [
     -88.0906873
   ],
   [
-    "Geneva, Switzerland",
-    46.2017559,
-    6.1466014
-  ],
-  [
-    "Beijing, China",
-    39.9059631,
-    116.391248
-  ],
-  [
-    "Rome, Italy",
-    41.8933203,
-    12.4829321
-  ],
-  [
-    "Orsay, France",
-    48.6991805,
-    2.1874811
-  ],
-  [
-    "Munich, German",
-    48.1352414,
-    11.5821626
-  ],
-  [
-    "Nanjing, China",
-    32.0609736,
-    118.7916458
+    "Long Island, NY, USA",
+    40.85149705,
+    -73.0994258107431
   ],
   [
     "Lausanne, Switzerland",
@@ -45,13 +50,28 @@ var addressPoints = [
     6.6327025
   ],
   [
-    "Lemont, IL, US",
-    41.673642,
-    -88.0017261
+    "Rome, Italy",
+    41.8933203,
+    12.4829321
   ],
   [
-    "Los Angeles, USA",
-    34.054935,
-    -118.244476
+    "Geneva, Switzerland",
+    46.2017559,
+    6.1466014
+  ],
+  [
+    "Berkley, CA, USA",
+    37.3825219,
+    -120.60765345485514
+  ],
+  [
+    "Meyrin, Switzerland",
+    46.2283226,
+    6.0712016
+  ],
+  [
+    "Toulouse, France",
+    43.6044622,
+    1.4442469
   ]
 ];
