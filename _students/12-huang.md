@@ -11,5 +11,5 @@ position: Undergraduate Student
 current_position: 
 finished: true
 excerpt: Heterogeneous GNN and Language Models for HEP
-paper:  JINST 18 (2023) P07001
+paper:  JINST 18 (2023) P07001, arXiv:2402.10239
 ---
