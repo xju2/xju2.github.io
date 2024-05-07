@@ -8,7 +8,7 @@ end_date: 2021-08-01
 institution: UC, Berkeley
 department: EECS
 position: Undergraduate Student
-current_position: 
+current_position: MS in CS @ Columbia University
 finished: true
 excerpt: Development of `root_gnn` software package
 paper: 
