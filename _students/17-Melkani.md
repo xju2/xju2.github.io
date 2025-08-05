@@ -11,5 +11,5 @@ position: undergraduate student
 current_position:
 finished: true
 excerpt: Language model for HEP
-paper:
+paper: arXiv:2402.10239, arXiv:2407.21290
 ---
