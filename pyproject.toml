@@ -1,0 +1,14 @@
+[project]
+name = "cvmgr"
+version = "0.1.0"
+description = "CV management"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "bibtexparser>=1.4.3",
+    "bs4>=0.0.2",
+    "lxml[html-clean]>=6.0.2",
+    "pandas>=2.3.3",
+    "requests>=2.32.5",
+    "requests-html>=0.10.0",
+]

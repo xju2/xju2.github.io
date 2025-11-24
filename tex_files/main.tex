@@ -1,0 +1,506 @@
+\documentclass[a4paper, 12pt]{extarticle}
+
+% setup page styles
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    total={170mm, 257mm},
+    left=20mm,
+    top=20mm
+}
+%\pagenumbering{gobble}
+% end
+
+%\usepackage{lineno}
+%\linenumbers
+
+\usepackage{xspace}
+\usepackage{libertine}
+%% define new commands
+\newcommand\pe{\ensuremath{\mathcal{P}}}
+\newcommand\se{\ensuremath{\mathcal{S}}}
+\newcommand\ac{\ensuremath{\mathcal{C}}}
+\newcommand{\totalpub}{614}  %%How to find co-authored total publication
+\newcommand{\me}{I}
+\newcommand*{\rom}[1]{\uppercase\expandafter{\romannumeral\ #1\relax}}
+
+\newcommand\llll{\ensuremath{\ell^+\ell^-\ell^+\ell^-}\xspace}
+\newcommand\llvv{\ensuremath{\ell^+\ell^-\nu\bar{\nu}}\xspace}
+\newcommand\HZZ{\ensuremath{H\to ZZ}\xspace}
+
+
+\usepackage{hyperref} % Required for adding links	and customizing them
+\hypersetup{colorlinks, breaklinks, urlcolor=blue, linkcolor=black} % Set link colors
+
+%\renewenvironment{description}{
+  %\setlength{\leftmargini}{0em}
+  %\origdescription
+  %\setlength{\itemindent}{0em}
+  %\setlength{\labelsep}{\textwidth}
+%}
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection*{Contact Information}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{centering}
+    \textbf{\Large{XIANGYANG JU}} \\
+    \vspace{0.3cm}
+    % Male, born in January, 1986 \\
+    % 1 Cyclotron Road Mailstop 50B-5239, Berkeley, CA 94720, US \\
+    % \href{mailto:xiangyang.ju@cern.ch}{xiangyang.ju@cern.ch}, (+86) 15000538473\\
+    % \href{mailto:xju@lbl.gov}{xju@lbl.gov}, (+1) 6095917705 \\
+\end{centering}
+
+\section*{Education}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+    \item[] \textbf{Ph.D} \href{http://www.wisc.edu}{University of Wisconsin-Madison}, March 2018
+\newline \indent Dissertation topic: Observation of a Standard Model Higgs boson and search for additional heavy scalars in the $\llll$ final state with the ATLAS detector.
+\newline \indent Advisor: Prof.~Sau Lan Wu
+%\item \textbf{Research Assistant}, 08/2009-09/2011
+%\newline \indent University: \href{http://www.uregina.ca/}{University of Regina}, Canada
+%\newline \indent Subject: data quality, search for doubly-charged Higgs
+    \item[] \textbf{B.S.} \href{http://www.nju.edu.cn/}{Nanjing University},   July 2009
+\newline \indent Thesis: Measurement of the Top mass using the ATLAS detector
+\newline \indent Advisor: Prof.~Shenjian Chen
+\end{itemize}
+
+\section*{Employment}
+\begin{itemize}
+    \item[] August 2025 --- Present, Computing System Engineer (Career), Lawrence Berkeley National Laboratory, US
+    \item[] November 2021 --- August 2025, Computing System Engineer (Termed), Lawrence Berkeley National Laboratory, US
+    \item[] April 2018 --- November 2021, High Performance Computing Postdoctoral Scholar, Lawrence Berkeley National Laboratory, US
+    \item[] August 2011 --- March 2018, Research/Teaching assistant, University of Wisconsin-Madison, US
+    \item[] August 2009 --- August 2011, Research assistant, University of Regina, Canada
+\end{itemize}
+
+\section*{Award}
+\begin{itemize}
+    \item Distinguished Researcher Award from the US ATLAS Center, August 2017.
+\end{itemize}
+
+\section*{Responsibilities and Leaderships}
+\begin{itemize}
+    \item[] Sep, 2024 --- present, Technical lead of the Scaling Machine Learning group in High Energy Physics --- Center for Computational Excellence
+    \item[] October, 2024 --- present, ATLAS ML architectures and infrastructure Facilitator
+    \item[] June, 2023 --- present, Affiliate of the ``Accelerated AI Algorithms for Data-Driven Discovery'' (\textbf{A3D3}) institue funded by NSF under the Harnessing the Data Revolution program.
+\end{itemize}
+
+\section*{Research Experience}
+
+\noindent\textbf{2024 --- present, Token-based Transformer for particle tracking in HEP}
+\begin{itemize}
+    \item TrackingBERT, a language model for particle tracking. It treats the tracking hits as words and tracks as sentences. It is pre-trained on simulated data with BERT-like self-supervised learning.~\href{https://arxiv.org/abs/2402.10239}{PROC-CTD2023-33}
+    \item TrackSorter:  a Transformer-based sorting algorithm for track finding. It uses the GPT-style training to directly predict the track labels of hits in an event.~\href{https://arxiv.org/abs/2407.21290}{arXiv:2407.21290}
+\end{itemize}
+
+\noindent\textbf{2023 --- present, ATLAS Machine Learning Inference Infrastructure}
+\begin{itemize}
+    \item Led the efforts in building a common machine learning inference infrastructure for the ATLAS experiment using ONNX Runtime.
+    \item Led the efforts in developing the Inference as a Service (IaaS) infrastructure in Athena using NVIDIA Triton Inference Server.~\href{https://cds.cern.ch/record/2923940?ln=en}{ATL-SOFT-PROC-2025-026}
+    \item Developed the ExaTrkX tracking as a service and integrated the pipeline to Athena.~\href{http://arxiv.org/abs/2402.09633}{arXiv:2402.09633}, \href{10.1088/1748-0221/20/06/P06002}{JINST 20 (2025) P06002}
+    \item Working on leveraging the IaaS infrastructure for ATLAS DAOD production.
+\end{itemize}
+
+\noindent\textbf{2022 --- present, Exa.TrkX tracking pipeline for ATLAS ITk}
+\begin{itemize}
+    \item Pioneered the efforts in bringing R\&D ExaTrkX tracking pipeline to ATLAS experiment for particle tracking in ITk.
+    \item Led the integration of ExaTrkX tracking pipeline into the ATLAS software framework Athena.
+    \item Explored different approaches, such as using GNN for pixel hits and CKF for track extrapolation, to improve computing performance.
+\end{itemize}
+
+\noindent\textbf{2023 --- 2024, Deep Generative Models for Fast Simulation}
+
+I applied the normalizing flow (NF) models to various simulation tasks in High Energy Physics.
+
+\begin{itemize}
+    \item \textit{Hadronic interaction simulation with Normalizing Flows (NFs)}: Developed NF models to enumerate hadronic interactions simulated by Geant4.~\href{https://doi.org/10.1051/epjconf/202429509034}{EPJ Web of Conferences 295, 09034 (2024)}.
+    \item \textit{Generating Drell-Yan events with Normalizing Flows for ATLAS}: Used the same NF models to generate Drell-Yan events for the ATLAS experiment. The model achieves high fidelity in generating events and is much faster than traditional Monte Carlo generators.~\href{https://cds.cern.ch/record/2871924/files/ATL-SOFT-PROC-2023-037.pdf?version=1}{ATL-SOFT-PROC-2023-037}.
+    \item \textit{Generative machine learning for detector response modeling with a conditional normalizing flow}: Applied the same NF models to model the detector response of the ATLAS electromagnetic calorimeter. The model achieves high fidelity in modeling the detector response and is much faster than traditional Geant4 simulation.~\href{https://iopscience.iop.org/article/10.1088/1748-0221/19/02/P02003}{JINST 19 P02003}.
+\end{itemize}
+
+\noindent\textbf{2019 --- 2022, Geometry Learning for Event Reconstructions}
+
+\medskip
+My research work advances the event reconstructions in the High Energy Physics by adopting graph neural network (GNN).
+
+\begin{itemize}
+    \item \textit{Tracking reconstruction}: Developed an machine learning (ML)-based end-to-end tracking pipeline (i.e.~\textcolor{blue}{Exa.TrkX tracking pipeline}) for the High-Luminosity LHC (HL-LHC). Its core part is the Interaction Network. It scales better than traditional tracking algorithm, making it a promising candidate for future experiments.~\href{https://arxiv.org/abs/2103.06995}{arXiv:2103.06995}; \href{https://iopscience.iop.org/article/10.1088/1748-0221/16/05/P05001}{JINST 16 P05001}; \href{https://arxiv.org/abs/2007.00149}{arXiv:2007.00149}; \href{https://arxiv.org/abs/2003.11603}{arXiv:2003.11603}.
+
+    \item \textit{Supervised jet clustering}: Traditional jet clustering methods are unsupervised. For the first time, we demonstrated that it is advantageous to use supervised methods based on ML to do jet clustering. The same Interaction Network was used! \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.102.075014}{Phs. Rev. D 102, 075014 (2020)}.
+
+    \item \textit{Top reconstruction}: It is a combinatorial problem to reconstruct all hadronically decayed top quarks. Preliminary studies show that GNN achieves promising results. A preprint is under preparation.
+    % \item \textit{Distributed GNN training} I performed a comparison of TPU and GPU platforms
+\end{itemize}
+
+\noindent\textbf{2018 --- 2020, Generator and detector simulation tuning with detector-level data using HPC}
+\begin{itemize}
+    % \item Goal is to achieve scientific discovery through high performance computers (HPC)
+    \item Developed a configurable fast detector-simulation package for the ATLAS and CMS detectors under the Rivet analysis framework.
+    \item First demonstrated that generator parameters can be tuned with detector-level data using the above package.
+    \item The two developments allow a great deal of new data to event generator tuning applications and offer an automatic way to examine detector resolutions and efficiencies in complex kinematic phase spaces. A preprint is under preparation.
+    \item Developed a performant Message Passing Interface (MPI)-based parallelism for efficiently running Pythia8 generators in an HPC environment, \href{https://arxiv.org/abs/2103.05748}{arXiv:2103.05748}, \href{https://github.com/HEPonHPC/apprentice}{Apprentices}, and I integrated the MPI parallelism into a fast-simulation workflow that helped ATLAS experiment to generate billions of simulated events for the search for the Higgs boson in the dimuon events.~\href{https://gitlab.cern.ch/xju/powheginlinegen}{PowhegInlineGen}.
+
+    \item Developed a JAX-based auto-tune package for tuning generator parameters. It accepts customized objective functions and minimizes the function via gradient-based optimization methods.
+\end{itemize}
+
+
+\noindent\textbf{2019 --- 2020, Search for new physics using the Higgs boson as a portal}
+\begin{itemize}
+    \item \textit{Search for the Higgs boson in the di-muon final state}: To control the statistic uncertainties of the background events at a desirable level, I generated billions of fast simulated events within a day by using up to 2048 CPU cores in super computer center, thanks to the package I developed for High Performance Computers. As a result, the search sensitivities was increased by 3 to 5\%. It would not be possible for ATLAS to generate so many events in such a short amount of time.~\href{https://www.sciencedirect.com/science/article/pii/S0370269320307838}{Phys. Lett. B 812 (2021) 135980}
+
+    \item \textit{CP properties of Higgs boson interactions with top quarks using $H \rightarrow \gamma\gamma$}: Machine learning architectures, specifically the Boost Decision Tree, were used not only to better reject background events but also to separate CP-even and CP-odd events. I provided technical support in training the BDTs. \href{https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.061802}{Phys. Rev. Lett. 125. 061802}
+
+    \item \textit{Search for heavy resonances decaying into a pair of $Z$ boson}: Deep learning architectures, including multilayer perceptrons and recurrent neural network, were used to distinguish signal events from the background events. 20 to 40\% improvement in the search sensitivities was achieved. \href{https://link.springer.com/article/10.1140/epjc/s10052-021-09013-y}{Eur. Phys. J. C 81, 332 (2021)}.
+\end{itemize}
+
+
+\noindent\textbf{2016 --- 2019, Search for beyond the Standard Model resonances in di-boson final states}
+\begin{itemize}
+    \item  \textbf{Search for heavy ZZ resonances in the \llll and \llvv final states} \newline
+        Led the analysis team as analysis contact person and publication editor.
+        Several novel techniques were first time introduced to this analysis: using analytic
+        functions to model the four-lepton invariant mass for signal and background events,
+        interpreting results for large-width hypotheses, and properly taking into
+        account the interference effects. I made the combination of the \llll and \llvv final states.
+        I am one of the three publication editors for this analysis using  full LHC Run 2 data.
+        \href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-19/}{Eur. Phys. J. C 78 (2018) 293}
+    \item \textbf{Search for heavy resonances in the diphoton events at $\sqrt{s} = 13$}~TeV \newline
+        Led the efforts in measuring the purity of prompt diphoton events in signal regions as an internal
+        note editor. Prepared for the analysis team with pre-selected data that ensures consistency and correctness among all analyzers. Estimated the global significance of an excess with diphoton invariant mass around 750 GeV
+        based on the 2D Random Field method
+        and pseudo-experiments.
+        \href{http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-17/}{Phys. Lett. B 775 (2017) 105}
+    \item \textbf{Search for heavy ZZ resonances in the $\ell^+\ell^- qq$ and $\nu\nu qq$ final states} \newline
+        Combined the results from the $\ell^+\ell^- qq$ and $\nu\nu qq$ final states.
+        \href{https://link.springer.com/article/10.1007/JHEP03(2018)009}{JHEP 03 (2018) 009}
+    \item \textbf{Search for heavy resonances in bosonic final states} \newline
+        Combined the results from the $\ell^+\ell^-\ell^+\ell^-$, $\ell^+\ell^-\nu\nu$, $\ell^+\ell^- qq$ and $\nu\nu qq$ final states.
+        \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.98.052008}{Phys. Rev. D 98 (2018) 052008}
+\end{itemize}
+
+\noindent\textbf{2015 --- 2017, Search for dark matter (DM) in mono-jet and mono-Higgs final states}
+\begin{itemize}
+    \item I was one of the editors for the ``white paper'' published by the LHC Dark Matter forum.
+        Studied experimental features of the DM Benchmark Models,
+        particularly the mono-Higgs models.
+        Proposed and implemented the parameters for the mono-Higgs models
+        that later served as the back-bone of the DM searches at the LHC.
+        \href{https://www.sciencedirect.com/science/article/pii/S2212686419301712}{Phys. Dark Univ. 27 (2020) 100371}
+    \item  \textbf{Search for DM in the final state with an energetic jet and large missing transverse momentum} (mono-jet) \newline
+        Optimized the event selections for 13~TeV data.
+        Studied signal modeling.
+        Used jet-smearing method to estimate
+        the multiple-jets background.
+        Checked the control regions for W/Z/$t\bar{t}$ backgrounds to make sure
+        all the background modelings are correct.
+        \href{https://link.springer.com/article/10.1007/JHEP01(2018)126}{JHEP 01 (2018) 126}
+    \item Made first public result on the search for DM in the mono-Higgs final state using the
+        first 13~TeV $pp$ collisions data for the End of Year Event 2015.
+        \href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2015-059}{ATLAS-CONF-2015-059}.
+
+
+    \item Led a team in developing a statistical analysis framework for $H\to ZZ$ analysis.
+        It builds a combined likelihood model of the
+        ZZ events in multiple categories, based on either analytic functions or Monte
+        Carlo templates or simply number of events. It is used for all
+        the publications of the \llll analyses since 2015.
+\end{itemize}
+
+\noindent\textbf{2012 --- 2014, Measurement of the Higgs boson properties in the \llll final state}
+\begin{itemize}
+    \item Introduced and implemented an innovative two-dimensional fitting method for
+        Higgs coupling measurement. This method reduces the error of the signal
+        strength by 25\% in the VBF production in the \llll final state.
+        \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.91.012006}{Phys. Rev. D 91 (2015) np.1, 012006}
+    \item Performed first measurements on the signal strengths of
+        various Higgs boson production modes in the \llll final states.
+        % \href{http://inspirehep.net/record/1311990}{Phys. Rev. D 91 (2015) no.1, 012006}
+
+    \item Served as one of the internal note editors for the publication
+        of the Higgs coupling measurement in the \llll final state in 2013.
+    \item Proposed an innovative two-dimensional fitting method for the Higgs mass measurement.
+        The innovative method reduces the statistical error by 8\% leading to the best Higgs mass measurement
+        in the \llll final state at that time.
+\end{itemize}
+
+\noindent\textbf{2011 --- 2012, Discovery of the Standard Model Higgs boson in the \llll final state}
+\begin{itemize}
+    \item Optimized the \llll event selections for the Higgs boson discovery.
+    \item Proposed and implemented a novel method for evaluating the reducible background in the $4e$ and
+        $2\mu2e$ channels for the Higgs boson discovery.
+    \item Processed data and delivered the statistical results for all ATLAS public
+        results on the \llll analyses between 2011 and 2012, including the final statistical
+        significance for the Higgs boson discovery on July 4, 2012.
+        \href{http://www.sciencedirect.com/science/article/pii/S037026931200857X}{Phys. Lett. B 716 (2012) 1-29}
+    \item Gave the approval talk for the Higgs discovery on behalf of the four-lepton analysis team
+        in the Higgs working group on June 15, 2012.
+\end{itemize}
+
+\noindent\textbf{2009 --- 2011, Detector performance studies with early LHC data with University of Regina, Canada}
+\begin{itemize}
+    % \item Configured the on-line trigger monitoring for data taking.
+    % \item Measured the noises in electromagnetic calorimeter. (authorship qualification task)
+    % \item Online data quality monitoring (operation contribution)
+    \item Measured the electron efficiency for the first observation of the $W$ and $Z$ bosons in ATLAS with
+        280~$nb^{-1}$ $\sqrt{s} = 7$~TeV data.
+    % \item Developed all toolkit to look for doubly-charged Higgs, including MC
+        % simulation, event selections, background estimates and exclusion limits.
+\end{itemize}
+
+
+\section*{Teaching  Experience}
+\begin{itemize}
+\item Supervising the undergraduate student, Allison Xu, who received the US ATLAS Summer Undergraduate Program for Exceptional Researches (SUPER), Fall 2019 --- Present.
+\item Supervising undergraduate three students from University of Washington in studying the robustness of Graph Neural Network, Summer 2020 --- Present.
+\item Supervising an undergraduate student from UC Berkeley in studying the cluster shape effect.
+\item Supervised undergraduate students from UC Berkeley through the Undergraduate Research Apprentice Program (URAP), Fall 2018, Spring 2019, Fall 2019 and Spring 2020.
+\item Lectured General Physics (Electricity and Magnetism) for about 50 undergraduate students from University of Wisconsin-Madison, Spring \& Fall, 2014.
+%%\item 2014 Fall: Teach 50 undergraduate students general physics
+%\newline \indent \href{http://www.wisc.edu}{University of Wisconsin-Madison, US}
+%%\newline \indent \textbf{Subject:} Electric and Magnetism, Optical and relavent experiments
+
+\end{itemize}
+
+
+\section*{Talks}
+
+\textbf{In International Conferences}
+\begin{enumerate}
+    \item ``Event Generator Tuning Incorporating MC Systematic Uncertainty '', \href{https://indico.jlab.org/event/459/contributions/11602/}{26th International Conference on Computing High Energy and Nuclear Physics}, Norfolk, USA, May 9, 2023.
+
+    \item Poster, ``Graph Neural Network for Particle Reconstruction in High Energy Physics detectors", 33rd Annual Conference on Neural Information Processing Systems, December 14, 2019
+
+    \item ``HEP.TrkX Charged Particle Tracking using Graph Neural Network'', \href{https://indico.cern.ch/event/742793/contributions/3274328/}{Connecting The Dots / Intelligent Trackers}, Valencia Spain, April 3, 2019.
+
+    \item ``A novel workflow of generator tunings in HPC for LHC new physics searches'', \href{https://indico.cern.ch/event/751693/}{Physics Event Generator Computing Workshop}, CERN, Nov 27, 2018.
+
+    \item ``Search for heavy ZZ resonances in the \llll and \llvv final states with the ATLAS detector'', \href{https://indico.fnal.gov/contributionDisplay.py?sessionId=14&contribId=98&confId=11999}{Meeting of APS Division of Particle and Field}, Fermi Accelerator National Laboratory, August 3, 2017.
+
+    \item ``Search for BSM physics including dark matter at ATLAS'', {UCLA Dark Matter 2016},
+    \href{https://conferences.pa.ucla.edu/dm16/talks/xiangyangju.pdf}{Los Angeles, USA}, Febrary 18, 2016.
+
+    \item ``Observation and measurements of the Higgs boson in the $H\to ZZ^*\to 4\ell$ decay mode'', {International Symposium on Higgs Physics},
+    \href{http://ishp2013.ihep.ac.cn/index.html}{Beijing, China}, August 15, 2013
+
+    \item Poster, ``Observation of the new Higgs-like particle in the four lepton decay channel with the ATLAS detector'',
+    {Large Hadron Collider Committee 2013},
+    \href{https://indico.cern.ch/event/238337/}{CERN, Switzerland}, March 13, 2013
+\end{enumerate}
+
+% \textbf{In US-ATLAS Conferences}
+% \begin{enumerate}
+%     \item ``Search for heavy ZZ resonances in the \llll and \llvv final states with the ATLAS detector'', \href{https://indico.cern.ch/event/631514/contributions/2659552/attachments/1498399/2332658/20170725_xju_highmass_4l_llvv.pdf}{US ATLAS Workshop}, Argonne National Laboratory, July 25, 2017.
+
+%     \item ``Observation and coupling measurements of the Higgs boson in the four-lepton decay mode'',
+%     {US ATLAS General Meeting},
+%     \href{https://sites.google.com/site/usatlasphysicsworkshop2013/}{Argonne National Laboratory, US}, July 17, 2013
+% \end{enumerate}
+
+% \textbf{In ATLAS Internal Workshops}
+% \begin{enumerate}
+
+
+%         \item ``Statistical framework in \HZZ'', {ATLAS \HZZ Workshop}, \href{https://indico.cern.ch/event/481860}{Munich, German}, April 26, 2016.
+
+
+%     \item ``Selected key perspectives of \HZZ analysis in LHC Run~2'', {ATLAS Higgs Workshop},
+%         \href{http://www.roma1.infn.it/conference/Atlas_Higgs_2014/index.html}{Rome, Italy}, April 18, 2014
+
+%           \item ``2D workspace for mass and rate measurement'', {ATLAS \HZZ Workshop}, \href{https://indico.cern.ch/event/223721/}{Rome, Italy}, April 17, 2013
+
+%               \item ``Background estimation'', {ATLAS \HZZ Workshop}, \href{http://events.lal.in2p3.fr/AtlasHiggstozz/}{Paris, France}, October 10, 2012
+% \end{enumerate}
+
+\textbf{Seminars}
+\begin{enumerate}
+    \item ``First-class machine learning model for Science: Graph Neural Network'', \href{https://bids.berkeley.edu/events/machine-learning-and-science-forum-2020-1109}{Berkeley Institute for Data Science}, November 9, 2020.
+    % \item ``Generator and detector simulation tuning with detector-level data using HPC'', {Beijing University Seminar}, Beijing, China, December 31, 2018.
+
+    % \item ``Generator and detector simulation tuning with detector-level data using HPC'', {Nanjing University Seminar}, Nanjing, China, December 27, 2018.
+
+    % \item ``Higgs measurements and search for new physics in \llll channel'', {Shangdong University Seminar}, Shangdong, China, December 23, 2016.
+
+    % \item ``Recent results of the Higgs measurements and searches in ATLAS'', {Nanjing University Seminar}, Nanjing, China, December 21, 2016.
+
+    \item ``Study of the properties of the Higgs boson and searches for new physics with the Higgs boson at ATLAS using 13 TeV data'', {LPHE Seminar},
+    \href{http://lphe.epfl.ch/seminar/ext_semin.php}{Lausanne, Switzerland}, October 3, 2016.
+
+\end{enumerate}
+
+% \section*{Approval talks at ATLAS collaboration}
+% \textbf{Approval talks at ATLAS collaboration}
+% \begin{enumerate}
+%     \item Search for heavy ZZ resonances in the \llll and \llvv final states, Higgs Group Approval, June 13, 2017
+%     \item First results in the $H\to ZZ^*\to 4\ell$ decay channel using 13 TeV data, ATLAS approval meeting, December 7 2015
+%     \item Measurements of properties of the new Higgs-like particle in the four lepton decay channel, ATLAS approval meeting, February 27 2013
+%     \item $H\to ZZ^*\to 4\ell$ analysis approval (2011 + 2012 data) (\textbf{for Higgs discovery}), Higgs Group Approval, June 15, 2012
+
+% \end{enumerate}
+
+
+
+\section*{Publication Lists}
+%\noindent I am the co-author in 664 publications of the ATLAS collaboration
+%and 36 preliminary notes for conferences and 57 internal notes.
+% \textbf{Only publications with my direct contributions are listed below}
+
+%Editorship of the published paper is indicated by \pe, editorship of supporting documentations is indicated by \se and analysis contact by \ac.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{center}\textbf{Scientific Journals}\end{center}
+\vspace{0.2cm}
+\textbf{Refereed Journal Articles}
+\begin{enumerate}
+    \item A. Huang, X. Ju, and others, ``Heterogeneous Graph Neural Network for identifying hadronically decayed tau leptons at the High Luminosity LHC'', \href{https://iopscience.iop.org/article/10.1088/1748-0221/18/07/P07001}{JINST 18 (2023) P07001}, January 2023.
+
+    \item W. Wang and others, ``BROOD: Bilevel and Robust Optimiation and Outlier Detection for Efficient Tuning of High-Energy Physics Event Generators'', \href{https://scipost.org/10.21468/SciPostPhysCore.5.1.001}{SciPost Phys. Core 5, 001 (2022)}, January 2022.
+
+    \item X. Ju and others, ``Physics and Computing Performance of the Exa.TrkX TrackML Pipeline'', \href{https://link.springer.com/article/10.1140/epjc/s10052-021-09675-8}{Eur. Phys. J. C 81 (2021)10,876}, October 2021.
+
+    \item P. Fox and others, ``Beyond 4D Tracking: Using Cluster Shapes for Track Seeding'', \href{https://iopscience.iop.org/article/10.1088/1748-0221/16/05/P05001}{JINST 16 P05001}, December 2020.
+
+    \item X. Ju and B. Nachman, ``Supervised Jet Clustering with Graph Neural Networks for Lorentz Boosted Bosons'', \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.102.075014}{Phys. Rev. D 102, 075014 (2020)}, October 2020.
+
+    \item N. Choma, D. Murnane, X. Ju and others, ``Track Seeding and Labelling with Embedded-space Graph Neural Networks'', \href{https://indico.cern.ch/event/831165/papers/3717124/files/9914-Track_Seeding_and_Labeling_with_Embedded_Graph_Neural_Networks_4.pdf}{Proceedings in Connecting the Dots Workshop 2020},  \href{https://arxiv.org/abs/2007.00149}{arXiv:2007.00149}, June 2020.
+
+    \item X. Ju and others, ``Graph Neural Networks for Particle Reconstruction in High Energy Physics detectors", \href{https://ml4physicalsciences.github.io/2019/files/NeurIPS_ML4PS_2019_83.pdf}{33rd Annual Conference on Neural Information Processing Systems}, \href{https://arxiv.org/abs/2003.11603}{ arXiv:2003.11603}, March 2020.
+
+    \item ATLAS Collaboration, ``$CP$ Properties of Higgs Boson Interactions with Top Quarks in the $t\bar{t}H$ and $tH$ Processes Using $H \rightarrow \gamma\gamma$ with the ATLAS Detector", \href{https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.061802}{Phys. Rev. Lett. 125, 061802}, August 2020.
+
+    \item ATLAS Collaboration, ``A search for the dimuon decay of the Standard Model Higgs boson with the ATLAS detector", \href{https://www.sciencedirect.com/science/article/pii/S0370269320307838}{Phys. Lett. B 812 (2021) 135980}, July 2020.
+
+    \item ATLAS Collaboration, ``Search for heavy resonances decaying into a pair of $Z$ boson in the \llll and \llvv final states using 139~fb$^{-1}$ of proton-proton collision at 13 TeV with the ATLAS detector",  \href{https://link.springer.com/article/10.1140/epjc/s10052-021-09013-y}{Eur. Phys. J. C 81, 332 (2021)}.
+
+
+    \item D. Abercrombie and others, ``Dark Matter Benchmark Models for Early LHC Run-2 Searches: Report of the ATLAS/CMS Dark Matter Forum'',     \href{https://www.sciencedirect.com/science/article/pii/S2212686419301712}{Phys. Dark Univ. 27 (2020) 100371}, January 2020.
+
+
+    \item {{ATLAS Collaboration}, ``Combination of searches for heavy resonances decaying into bosonic and leptonic final states using 36 fb$^{-1}$ of proton-proton collision data at $\sqrt{s}$ = 13 TeV with the ATLAS detector''}, \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.98.052008}{Phys. Rev. D 98 (2018) 052008}, September 2018.
+
+    % DBL combination
+    \item {{ATLAS Collaboration}, ``Searches for heavy ZZ and ZW resonances in the $\ell\ell qq$ and $\nu\nu qq$ final states in $pp$ collisions at $\sqrt{s}$ = 13 TeV with the ATLAS detector''}, \href{https://link.springer.com/article/10.1007/JHEP03(2018)009}{JHEP 03 (2018) 009}, March 2018.
+
+    % 2016 mono-jet
+    \item {{ATLAS Collaboration}, ``Search for dark matter and other new phenomena in events with an energetic jet and large missing transverse momentum using the ATLAS detector''}, \href{https://link.springer.com/article/10.1007/JHEP01(2018)126}{JHEP 01 (2018) 126}, January 2018.
+
+    % 2015 and 2016 data
+    \item {{ATLAS Collaboration}, ``Search for heavy $ZZ$ resonances in the \llll and \llvv final states using proton-proton collisions at $\sqrt{s}$ = 13 TeV with the ATLAS detector''}, \href{https://link.springer.com/article/10.1140/epjc/s10052-018-5686-3}{Eur. Phys. J. C 78 (2018) 293}, December 2017.
+
+    \item {{ATLAS Collaboration}, ``Search for new phenomena in high-mass diphoton final states using 37~fb$^{-1}$ of proton--proton collisions at $\sqrt{s}$ = 13 TeV with the ATLAS detector''}, \href{https://www.sciencedirect.com/science/article/pii/S0370269317308511}{Phys. Lett. B 775 (2017) 105}, July 2017.
+
+
+    % 2015 data, 3.2 fb^-1
+    \item {{ATLAS Collaboration}, ``Search for resonances in diphoton events at $\sqrt{s}$ = 13 TeV with the ATLAS detector'',} \href{https://link.springer.com/article/10.1007%2FJHEP09%282016%29001}{JHEP 1609 (2016) 001}, June 2016.
+
+    % mono-jet 2015 data
+    \item {{ATLAS Collaboration}, ``Search for new phenomena in final states with an energetic jet and large missing transverse momentum in pp collisions at 13 TeV using the ATLAS detector'',} \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.94.032005}{Phys. Rev. D 94 (2016) no.3, 032005}, April 2016.
+
+    % although my name was there... But I don't think I contributed...
+    % \item {{ATLAS Collaboration}, ``Search for an additional, heavy Higgs boson in the $H\rightarrow ZZ$ decay channel at $\sqrt{s}$ = 8 TeV in $pp$ collision data with the ATLAS detector'',} \href{http://inspirehep.net/record/1384120}{Eur.Phys.J. C76 (2016) no.1, 45}
+
+    % name is not in glance...
+    % \item {{ATLAS Collaboration}, ``Measurements of the Higgs boson production and decay rates and couplings using pp collision data at sqrt(s) = 7 and 8 TeV in the ATLAS experiment'',} \href{http://inspirehep.net/record/1383128}{Eur. Phys. J. C 76 (2016) no.1, 6}, July 2015.
+
+    %\item {{ATLAS Collaboration}, ``Combined measurement of the Higgs Boson mass in pp collisions at $\sqrt{s}$ = 7 and 8 TeV with the ATLAS and CMS experiments'',} \href{http://journals.aps.org/prl/abstract/10.1103/PhysRevLett.114.191803}{Phys. Rev. L 114 (2015) 191803}, May 2015.
+
+    \item {{ATLAS Collaboration}, ``Fiducial and differential cross sections of Higgs boson production measured in the four-lepton decay channel in pp collisions at $\sqrt{s}$ = 8 TeV with the ATLAS detector'',} \href{https://www.sciencedirect.com/science/article/pii/S0370269314007126}{Phys. Lett. B 738 (2014) 234-253}, November 2014.
+
+    \item {{ATLAS Collaboration}, ``Measurements of Higgs boson production and couplings in the four-lepton channel in $pp$ collisions at center-of-mass energies of 7 and 8 TeV with the ATLAS detector'',} \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.91.012006}{Phys. Rev. D 91 (2015) no.1, 012006}, August 2014.
+
+    \item {{ATLAS Collaboration}, ``Measurement of the Higgs boson mass from the $H\rightarrow\gamma\gamma$ and $H \rightarrow ZZ^{*} \rightarrow 4\ell$ channels with the ATLAS detector using 25~fb$^{-1}$ of $pp$ collision data'',} \href{http://journals.aps.org/prd/abstract/10.1103/PhysRevD.90.052004}{Phys. Rev. D 90 (2014) 052004}, September 2014.
+
+    %\item {{ATLAS Collaboration}, ``Measurements of Higgs boson production and couplings in diboson final states with the ATLAS detector at the LHC'',} \href{http://www.sciencedirect.com/science/article/pii/S0370269313006369}{Phys. Lett. B 726 (2013) 88-119}, June 2014.
+
+
+    \item {{ATLAS Collaboration},``Observation of a new particle in the search for the Standard Model Higgs boson with the ATLAS detector at the LHC'',} \href{http://www.sciencedirect.com/science/article/pii/S037026931200857X}{Phys. Lett. B 716 (2012) 1-29}, September 2012.
+
+    % \item {{ATLAS Collaboration}, ``A Particle Consistent with the Higgs Boson observed with the ATLAS Detector at the Large Hadron Collider'',} \href{http://www.sciencemag.org/content/338/6114/1576}{Science 338 1576-1582}, December 2012.
+
+    \item {{ATLAS Collaboration},``Combined search for the Standard Model Higgs boson using up to 4.9~fb$^{-1}$ of $pp$ collision data at $\sqrt{s}$ = 7 TeV with the ATLAS detector at the LHC'',} \href{http://www.sciencedirect.com/science/article/pii/S0370269312001852}{Phys. Lett. B 710 (2012) 49-66}, March 2012.
+
+    \item {{ATLAS Collaboration},``Search for the Standard Model Higgs boson in the decay channel $H \rightarrow ZZ^{*} \rightarrow 4\ell$ with 4.8~fb$^{-1}$ of $pp$ collisions at $\sqrt{s}$ = 7 TeV with ATLAS'',} \href{http://www.sciencedirect.com/science/article/pii/S0370269312002560}{Phys. Lett. B 710 (2012) 383-402}, April 2012.
+
+    \item {{ATLAS Collaboration}, ``Search for the Standard Model Higgs boson in the decay channel $H \rightarrow ZZ^{*} \rightarrow 4\ell$ with the ATLAS detector'',} \href{https://www.sciencedirect.com/science/article/pii/S0370269311012780}{Phys. Lett. B 705 (2011) 435-451}, September 2011.
+
+    \item {{ATLAS Collaboration}, ``Search for pair production of first or second generation leptonquarks in proton-proton collisions at $\sqrt{s}$ = 7 TeV using the ATLAS detector at the LHC'',} \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.83.112006}{{Phys. Rev. D 83 (2011) 112006}}, April 2011.
+
+    % \item {{ATLAS Collaboration}, ``Measurement of the $W\rightarrow \ell\nu$ and $Z/\gamma^* \rightarrow \ell\ell$ production cross sections in proton-proton collisions at $\sqrt{s}$ = 7 TeV with the ATLAS detector'',} \href{https://link.springer.com/article/10.1007%2FJHEP12%282010%29060}{JHEP {1012} (2010) 060}, October 2010.
+
+\end{enumerate}
+
+\textbf{Selected Non-Refereed Journal Articles}
+\begin{enumerate}
+
+    \item A. Ghosh and others, ``Towards a Deep Learning Model for Hadronization'', To PRD, \href{https://arxiv.org/abs/2203.12660}{arxiv:2203.12660}, March 2022.
+
+
+    \item S. Qiu and others, ``A Holistic Approach to Predicting Top Quark Kinematic Properties with the Covariant Particle Transformer'', To PRD, \href{https://arxiv.org/abs/2203.05687}{arxiv:2203.05687}, March 2022.
+
+    \item A. Lazar and others, ``Accelerating the Inference of the Exa.TrkX Pipeline'', Proceedings of \href{https://indico.cern.ch/event/855454/}{ACAT 2021}, \href{https://arxiv.org/abs/2202.06929}{arxiv:2202.06929}, March 2022.
+
+    \item C. Wang and others, ``Reconstruction of Large Radius Tracks with the Exa.TrkX pipeline'', Proceedings of \href{https://indico.cern.ch/event/855454/}{ACAT 2021}, \href{https://arxiv.org/abs/2203.08800}{arxiv:2203.08800}, March 2022.
+
+    \item M. Krishnamoorthy, H. Schulz, X. Ju and others, ``Apprentice for Event Generator Tuning'', submitted to \href{https://indico.cern.ch/event/948465/}{vCHEP 2021}, \href{https://arxiv.org/abs/2103.05748}{arXiv:2103.05748}, March 2021.
+
+    \item J. Hewes and others, ``Graph Neural Network for Object Reconstruction in Liquid Argon Time Projection Chambers'', submitted to \href{https://indico.cern.ch/event/948465/}{vCHEP 2021}, \href{https://arxiv.org/abs/2103.06233}{arXiv:2103.06233}, March 2021.
+
+
+
+    %%  2015 CERN new-year eve event, I led the team
+    \item ATLAS Collaboration, ``Measurements of the Higgs boson production cross section at 7, 8 and 13 TeV centre-of-mass energies and search for new physics at 13 TeV in the $H\to ZZ^* \to \ell^+ \ell^- \ell'^+ \ell'^-$ final state with the ATLAS detector'', \href{http://cdsweb.cern.ch/record/2114825}{ATLAS-CONF-2015-059}, December 2015.
+
+    %% 112nd LHCC meeting
+    \item ATLAS Collaboration, ``Observation of an excess of events in the search for the Standard Model Higgs boson in the $H \rightarrow ZZ^{(*)} \rightarrow 4\ell$ channel with the ATLAS detector'', presented at \href{https://cds.cern.ch/record/1491620}{112nd LHCC Meeting}, \href{https://cdsweb.cern.ch/record/1499628}{ATLAS-CONF-2012-169}, December 2012.
+
+    %% 36th ICHEP
+    \item {{ATLAS Collaboration}, ``Observation of an excess of events in the search for the Standard Model Higgs boson in the $H \rightarrow ZZ^{(*)} \rightarrow 4\ell$ channel with the ATLAS detector'',} presented at \href{https://cds.cern.ch/record/1298312}{36th International Conference on High Energy Physics}, \href{https://cds.cern.ch/record/1460411}{ATLAS-CONF-2012-092}, July 2012.
+
+    \item {{ATLAS Collaboration}, ``Observation of $W\rightarrow \ell\nu$ and $Z/\gamma* \rightarrow \ell\ell$ production in proton-proton collisions at $\sqrt{s}$ = 7 TeV with the ATLAS detector'',} presented at \href{https://cds.cern.ch/record/1184469}{5th conference: Physics at the LHC 2010},  \href{https://cds.cern.ch/record/1277684?ln=en}{ATLAS-CONF-2010-044}, July 2010.
+
+
+\end{enumerate}
+
+% \textbf{Publications at International Conferences}
+% \begin{enumerate}
+%     %% \item {{}, ``'',} \href{}{}
+
+%     % EPS 2017, mono-jet
+%     % \item {{ATLAS Collaboration}, ``Search for dark matter and other new phenomena in events with an energetic jet and large missing transverse momentum using the ATLAS detector'',} \href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2017-060/}{ATLAS-CONF-2017-060}, July 2017.
+%     %% EPS 2017, ZZ
+%     \item {{ATLAS Collaboration}, ``Search for heavy ZZ resonances in the \llll and \llvv final states using proton-proton collisions at $\sqrt{s}$ = 13 TeV with the ATLAS detector'',} \href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2017-058/}{ATLAS-CONF-2017-058}, July 2017.
+
+%     %% ICHEP 2016, using 2015 and 2016 data
+%     \item {{ATLAS Collaboration}, ``Search for scalar diphoton resonances with 15.4~fb$^{-1}$ of data collected at $\sqrt{s}$ = 13 TeV in 2015 and 2016 with the ATLAS detector'',} \href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2016-059/}{ATLAS-CONF-2016-059}, August 2016.
+
+%     \item {{ATLAS Collaboration}, ``Study of the Higgs boson properties and search for high-mass scalar resonances in the $H \rightarrow ZZ^{*} \rightarrow 4\ell$ decay channel at $\sqrt{s} = 13$ TeV with the ATLAS detector'',} \href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2016-079/}{ATLAS-CONF-2016-079}, August 2016.
+%         % \item {{}, ``'',} \href{}{}
+
+%     \item {{ATLAS Collaboration}, ``Combined measurements of the Higgs boson production and decay rates in $H \rightarrow ZZ^{*} \rightarrow 4\ell$ and $H \rightarrow \gamma\gamma$ final states using pp collision data at $\sqrt{s}$ = 13 TeV in the ATLAS experiment''} \href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2016-081/}{{ATLAS-CONF-2016-081}}, August 2016.
+
+
+%     %% End of Year Event, Dec, 2105
+%     \item {{ATLAS Collaboration}, ``Measurement of the fiducial cross sections of the Higgs boson and search for new physics in the $ZZ^{*} \rightarrow 4\ell$ final state with ATLAS using 2015 LHC pp collisions'',} \href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2015-059}{ATLAS-CONF-2015-059}, December 2015.
+
+%     % white paper LHC DM Forum
+%     \item {{D. Abercrombie and etc}, ``Dark Matter Benchmark Models for Early LHC Run-2 Searches: Report of the ATLAS/CMS Dark Matter Forum'',} \href{http://arxiv.org/abs/1507.00966}{{arXiv:1507.00966}}, July 2015.
+
+%     %% Moriond 2013
+%     \item {{ATLAS Collaboration}, ``Measurements of the properties of the Higgs-like boson in the four lepton decay channel with the ATLAS detector using 25~fb$^{-1}$ of proton-proton collision data'',} \href{http://cds.cern.ch/record/1523699}{ATLAS-CONF-2013-013},  Mar 2013.
+
+%     %% 112nd LHCC meeting
+%     \item {{ATLAS Collaboration}, ``Observation of an excess of events in the search for the Standard Model Higgs boson in the $H \rightarrow ZZ^{(*)} \rightarrow 4\ell$ channel with the ATLAS detector'',} \href{https://cdsweb.cern.ch/record/1499628}{ATLAS-CONF-2012-169}, December 2012.
+
+%     %% 36th ICHEP
+%     \item {{ATLAS Collaboration}, ``Observation of an excess of events in the search for the Standard Model Higgs boson in the $H \rightarrow ZZ^{(*)} \rightarrow 4\ell$ channel with the ATLAS detector'',} \href{https://cds.cern.ch/record/1460411}{ATLAS-CONF-2012-092}, July 2012.
+
+%     \item {{ATLAS Collaboration}, ``Observation of $W\rightarrow \ell\nu$ and $Z/\gamma* \rightarrow \ell\ell$ production in proton-proton collisions at $\sqrt{s}$ = 7 TeV with the ATLAS detector'',} \href{https://cds.cern.ch/record/1277684?ln=en}{ATLAS-CONF-2010-044}, July 2010.
+
+% \end{enumerate}
+
+
+\end{document}
