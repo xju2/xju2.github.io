@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from mypub import inspire_ids
-from writer import PublicationWriter
+from cvmgr.mypub import inspire_ids
+from cvmgr.writer import PublicationWriter
 import click
 
 

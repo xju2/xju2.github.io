@@ -9,8 +9,8 @@ import requests
 from bs4 import BeautifulSoup
 from requests_html import AsyncHTMLSession
 
-from inspirehep import get_inspire_data
-from paper import PaperData
+from cvmgr.inspirehep import get_inspire_data
+from cvmgr.paper import PaperData
 
 
 def find_index(in_str: str):

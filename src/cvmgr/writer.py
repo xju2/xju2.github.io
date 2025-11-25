@@ -9,10 +9,10 @@ from typing import Iterable
 
 import tqdm
 
-from arxiv import get_arxiv_data
-from cds import get_cds_data
-from inspirehep import get_inspire_data
-from paper import PaperData
+from cvmgr.arxiv import get_arxiv_data
+from cvmgr.cds import get_cds_data
+from cvmgr.inspirehep import get_inspire_data
+from cvmgr.paper import PaperData
 
 
 def _normalize_date(date_str: str) -> str:

@@ -7,7 +7,7 @@ import requests
 from bibtexparser.bwriter import BibTexWriter
 from bs4 import BeautifulSoup
 
-from paper import PaperData
+from cvmgr.paper import PaperData
 
 
 def get_cds_bibtext(cds_id: int):
@@ -15,18 +15,21 @@ def get_cds_bibtext(cds_id: int):
     url = f"https://cds.cern.ch/record/{cds_id}/export/hx"
     data = requests.get(url, timeout=20).text
     soup = BeautifulSoup(data, "html.parser")
-    bib_text = soup.find("pre").get_text()
+    pre_tag = soup.find("pre")
+    if pre_tag is None:
+        return ""
+    bib_text = pre_tag.get_text()
     return bib_text
 
 
 def remove_instiution_name(authors: str):
     """Remove the institution name in parenthesis from the authors' names."""
-    authors = authors.split(";")
-    authors = [author.split("(")[0].strip() for author in authors]
-    return authors
+    new_authors = authors.split(";")
+    new_authors = [author.split("(")[0].strip() for author in new_authors]
+    return new_authors
 
 
-def get_cds_info(cds_id: int):
+def get_cds_info(cds_id: int) -> dict:
     """Get the metadata from CDS."""
     url = f"https://cds.cern.ch/record/{cds_id}"
     data = requests.get(url, timeout=20).text
@@ -48,23 +51,24 @@ def get_cds_info(cds_id: int):
     return table_content
 
 
-def get_cds_data(index: str) -> dict:
+def get_cds_data(index: str) -> dict | None:
     """Get the CDS data for a given index."""
     if not index:
         return None
 
     if index[:4] == "cds:":
-        cds_id = index[4:]
+        cds_id = int(index[4:])
     else:
         print(f"ERROR: invalid CDS index: {index}")
+        return None
 
     cds_info = get_cds_info(cds_id)
     title = cds_info.get("Title")
-    authors = remove_instiution_name(cds_info.get("Author(s)"))
+    authors = remove_instiution_name(cds_info.get("Author(s)", "N/A"))
     journal_ref = cds_info.get("Report number")
     paper_doi = "N/A"
     category = "hep-ex"
-    preprint_date = cds_info.get("Imprint").split(".")[0]
+    preprint_date = cds_info.get("Imprint", "N/A").split(".")[0]
     preprint_date = datetime.strptime(preprint_date, "%d %b %Y").date().strftime("%Y-%m-%d")
 
     bib_text = get_cds_bibtext(cds_id)

@@ -1,6 +1,6 @@
 #!/usr/bin/python
-import arxiv
-from citations import citations
+from cvmgr import arxiv
+from cvmgr.citations import citations
 from multiprocessing import Pool
 from functools import partial
 

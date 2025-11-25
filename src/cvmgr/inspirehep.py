@@ -7,7 +7,7 @@ from multiprocessing import Pool
 import requests
 
 import bib as bibHelper
-from paper import PaperData
+from cvmgr.paper import PaperData
 
 allowed_rate = 15  # 15 requests per 5 seconds
 sleep_time = 5 / allowed_rate  # sleep time between requests in seconds
