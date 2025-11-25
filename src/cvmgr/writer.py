@@ -3,7 +3,9 @@ from __future__ import annotations
 import dataclasses
 import json
 import re
+from datetime import datetime
 from pathlib import Path
+from typing import Iterable
 
 import tqdm
 
@@ -13,42 +15,73 @@ from inspirehep import get_inspire_data
 from paper import PaperData
 
 
-def generate_pub_data(paper_info: PaperData) -> str:
-    title = paper_info.title
-    title = title.replace("\\", "\\\\")  # escape backslash
+def _normalize_date(date_str: str) -> str:
+    """Ensure dates are YYYY-MM-DD."""
+    if not re.match(r"\d{4}-\d{2}-\d{2}", date_str):
+        return f"{date_str}-01"
+    return date_str
 
+
+def _format_authors(authors: Iterable[str], max_authors: int = 3) -> str:
+    authors_list = list(authors)
+    if len(authors_list) > max_authors:
+        authors_list = authors_list[:max_authors] + ["et al."]
+    return ", ".join(authors_list)
+
+
+def _format_month_year(date_str: str) -> str:
+    try:
+        return datetime.strptime(date_str, "%Y-%m-%d").strftime("%B %Y")
+    except ValueError:
+        return date_str
+
+
+def _escape_latex(text: str) -> str:
+    return (
+        text.replace("\\", "\\\\")
+        .replace("&", "\\&")
+        .replace("%", "\\%")
+        .replace("_", "\\_")
+    )
+
+
+def generate_markdown_entry(paper_info: PaperData) -> str:
+    title = _escape_latex(paper_info.title)
     link = paper_info.url
-    date = paper_info.preprint_date
-    # if date is not in the format of YYYY-MM-DD, add '-01' to the end
-    if not re.match(r"\d{4}-\d{2}-\d{2}", date):
-        date += "-01"
-
+    date = _normalize_date(paper_info.preprint_date)
     venue = paper_info.cite_info.replace("arxiv", "arXiv")
     inspire_id = paper_info.inspire_id
+    authors = _format_authors(paper_info.authors)
 
-    authors = paper_info.authors
-    if len(authors) > 3:
-        authors = authors[:3] + [" et al."]
-    authors = ", ".join(authors)
+    return "\n".join(
+        [
+            "---",
+            f'title: "{title}"',
+            f"date: {date}",
+            f"venue: {venue}",
+            f"link: {link}",
+            f"inspire_id: {inspire_id}",
+            f"authors: {authors}",
+            f"bibtex: {paper_info.bibtex!r}",
+            "---",
+        ]
+    )
 
-    out = "\n".join([
-        "---",
-        f'title: "{title}"',
-        f"date: {date}",
-        f"venue: {venue}",
-        f"link: {link}",
-        f"inspire_id: {inspire_id}",
-        f"authors: {authors}",
-        f"bibtex: {paper_info.bibtex!r}",
-        "---",
-    ])
-    return out
+
+def generate_latex_entry(paper_info: PaperData) -> str:
+    authors = _format_authors(paper_info.authors)
+    title = _escape_latex(paper_info.title)
+    venue = paper_info.cite_info.replace("arxiv", "arXiv")
+    url = paper_info.url
+    date_str = _format_month_year(_normalize_date(paper_info.preprint_date))
+    return f"\\item {authors}, ``{title}'', \\href{{{url}}}{{{venue}}}, {date_str}."
 
 
 class PublicationWriter:
-    def __init__(self, outdir: str | Path, mode="u"):
+    def __init__(self, outdir: str | Path, mode: str = "u", latex_file: str | Path | None = None):
         self.outdir = Path(outdir)
         self.mode = mode
+        self.latex_file = Path(latex_file) if latex_file else None
 
         self.local_data_name = ".localdatabase.json"
         self.local_data = {}
@@ -69,6 +102,8 @@ class PublicationWriter:
         self.bib_data = []
         # save publication data for personal website
         self.pub_data = []
+        # latex entries for CV
+        self.latex_entries = []
 
     def add(self, record_id: str):
         paper_info: PaperData | None = None
@@ -86,6 +121,10 @@ class PublicationWriter:
 
             self.local_data[record_id] = dataclasses.asdict(paper_info)
 
+        # normalize author list in case old cache stored a string
+        if isinstance(paper_info.authors, str):
+            paper_info.authors = [a.strip() for a in paper_info.authors.split(",") if a.strip()]
+
         # save the output filename for each record_id
         date = paper_info.preprint_date
         # if date is not in the format of YYYY-MM-DD, add '-01' to the end
@@ -99,6 +138,7 @@ class PublicationWriter:
         bib_entry = paper_info.bibtex
         self.bib_data.append(bib_entry)
         self.pub_data.append(paper_info)
+        self.latex_entries.append(generate_latex_entry(paper_info))
 
     def add_all(self, record_ids: list[str]):
         for recid in tqdm.tqdm(reversed(record_ids), total=len(record_ids), desc="Adding records"):
@@ -117,7 +157,12 @@ class PublicationWriter:
                 continue
             filename = self.local_metadata[pub.record_id]
             with open(self.outdir / filename, mode) as f:
-                f.write(generate_pub_data(pub))
+                f.write(generate_markdown_entry(pub))
+
+        if self.latex_file:
+            self.latex_file.parent.mkdir(parents=True, exist_ok=True)
+            with open(self.latex_file, mode) as f:
+                f.write("\n".join(self.latex_entries))
 
     def save(self):
         with open(self.local_data_name, "w") as f:

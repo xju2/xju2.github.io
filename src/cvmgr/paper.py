@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Sequence
 
 
 @dataclass
@@ -14,7 +15,7 @@ class PaperData:
     title: str
     bibtex: str
     inspire_id: str
-    authors: str
+    authors: Sequence[str]
     cite_info: str
     url: str
 

@@ -23,7 +23,6 @@ def citations(id_type, id_value, debug=False):
 
     # authors
     authors = [author["full_name"] for author in meta['authors']]
-    authors = ", ".join(authors)
 
     # maybe the paper is not submitted to a journal yet
     try:
