@@ -3,6 +3,21 @@ from pathlib import Path
 
 from mypub import inspire_ids
 from writer import PublicationWriter
+import click
+
+
+@click.command("update")
+@click.option("-o", "--outdir", help="output directory", default="publications")
+@click.option("-m", "--mode", help="update mode", default="u", type=click.Choice(["a", "u"]))
+@click.option("-w", "--workers", help="number of workers", default=1, type=int)
+def main(outdir, mode, workers):
+    Path(outdir).mkdir(exist_ok=True)
+
+    writer = PublicationWriter(outdir=outdir, mode=args.mode)
+    record_ids = [str(i) for i in inspire_ids]
+    writer.add_all(record_ids)
+    writer.write()
+    writer.save()
 
 if __name__ == "__main__":
     import argparse

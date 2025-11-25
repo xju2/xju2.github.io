@@ -7,8 +7,15 @@ requires-python = ">=3.12"
 dependencies = [
     "bibtexparser>=1.4.3",
     "bs4>=0.0.2",
+    "click>=8.3.1",
     "lxml[html-clean]>=6.0.2",
     "pandas>=2.3.3",
     "requests>=2.32.5",
     "requests-html>=0.10.0",
 ]
+
+[project.urls]
+"Homepage" = "https://github.com/xju2/xju2.github.io"
+
+[project.scripts]
+cvmgr = "cvmgr.cli:main"
