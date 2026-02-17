@@ -10,6 +10,6 @@ department: Electrical Engineering and Computer Sciences
 position: undergraduate student
 current_position:
 finished: false
-excerpt: LLM for HEP
+excerpt: AI Explainability and Interpretability
 paper:
 ---
