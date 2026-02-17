@@ -11,6 +11,10 @@ Last update is on 10 April, 2024.
 This page lists the projects I am working on or interested in.
 
 ## Machine Learning for Particle Physics
+* **Agentic AI for HEP** Agentic AI system are rapidly evovling in industry but lacks adoption in academia.
+Scientific workflows often involves in labor-intensive and repetitive steps that could potentially enjoy
+full automation using Agentic AI.
+
 * **Language models for particle detectors.** Language models have revolutionized natural language understanding. Particle detectors are complex apparatuses whose language is made of data organized in sub-detectors and readout modules. The project aims to train a language model that understands a detector’s vocabulary and can translate its raw data to higher-level constructs like clusters, tracks, jets, etc.
 
 * **Pattern recognition in a point cloud of measurements** Scientific data are often represented as 3D points, each associated with measurements (like a point cloud). Pattern recognition in a point cloud of measurements is challenging due to its combinatorial complexity. The project aims to leverage deep learning models to solve the issue.
