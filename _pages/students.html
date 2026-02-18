@@ -7,7 +7,7 @@ author_profile: true
 
 {% include base_path %}
 
-Last update is on 28 October, 2024.
+Last update is on 17 February, 2026.
 
 This page lists the students I am working or have worked with.
 
@@ -40,7 +40,7 @@ This page lists the students I am working or have worked with.
   .students-table td:nth-child(2):hover::after { /* Tooltip-like effect */
     content: attr(data-tooltip);
     position: absolute;
-    left: 20%;  
+    left: 20%;
     top: 10%;
     background-color: #ff7f50;
     color: #fff;
@@ -52,7 +52,7 @@ This page lists the students I am working or have worked with.
   }
   .students-table td:nth-child(5) { /* display full date */
     white-space: nowrap;
-  } 
+  }
 
   .students-table th {
     background-color: #f2f2f2;
@@ -70,7 +70,7 @@ This page lists the students I am working or have worked with.
 {% assign finished_students = site.students | where_exp: "student", "student.finished == true" | sort: 'date' %}
 
 <h2> Ongoing Students </h2>
-  
+
 <table class="students-table" id="ongoingStudents">
   <thead>
     <tr>
