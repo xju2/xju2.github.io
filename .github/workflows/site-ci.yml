@@ -34,8 +34,21 @@ jobs:
       - name: Build site
         run: make site
 
-      - name: Run site smoke tests
-        run: make smoke
+      - name: Verify primary routes
+        if: always()
+        run: make smoke-routes
+
+      - name: Verify generated assets
+        if: always()
+        run: make smoke-assets
+
+      - name: Verify custom domain
+        if: always()
+        run: make smoke-domain
+
+      - name: Verify rendered Liquid
+        if: always()
+        run: make smoke-liquid
 
       - name: Upload generated site
         if: always()

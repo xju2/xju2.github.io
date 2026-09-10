@@ -18,7 +18,7 @@ PRIMARY_PAGES := \
 	$(SITE_DIR)/talks/index.html \
 	$(SITE_DIR)/students/index.html
 
-.PHONY: all clean install site serve smoke check
+.PHONY: all clean install site serve check smoke smoke-routes smoke-assets smoke-domain smoke-liquid
 
 # Preserve the repository's existing default: build the CV PDF.
 all: $(TARGET)
@@ -32,19 +32,27 @@ site:
 serve:
 	$(JEKYLL) serve --livereload --config _config.yml,_config.dev.yml
 
-smoke:
+smoke-routes:
 	test -s $(SITE_DIR)/index.html
 	test -s $(SITE_DIR)/projects/index.html
 	test -s $(SITE_DIR)/publications/index.html
 	test -s $(SITE_DIR)/talks/index.html
 	test -s $(SITE_DIR)/students/index.html
+
+smoke-assets:
 	test -s $(SITE_DIR)/sitemap.xml
 	test -s $(SITE_DIR)/CNAME
 	test -s $(SITE_DIR)/assets/css/main.css
 	test -s $(SITE_DIR)/assets/js/main.min.js
+
+smoke-domain:
 	test "$$(tr -d '\r\n' < $(SITE_DIR)/CNAME)" = "www.ml4phys.com"
+
+smoke-liquid:
 	! grep -F '{{' $(PRIMARY_PAGES)
 	! grep -F '{%' $(PRIMARY_PAGES)
+
+smoke: smoke-routes smoke-assets smoke-domain smoke-liquid
 	@echo "Site smoke checks passed."
 
 check: site smoke
