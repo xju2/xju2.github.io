@@ -64,7 +64,7 @@ front-matter redirects.
 - Theme JavaScript and markup must be upgraded together.
 - A Jekyll major-version change may alter Liquid, Sass, and plugin behavior.
 - External academic and conference links may reject automated link checkers;
-  they should not become blocking checks without an reviewed baseline.
+  they should not become blocking checks without a reviewed baseline.
 
 ## First-stage quality gate
 
