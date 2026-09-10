@@ -25,7 +25,7 @@ end
 
 required_files.each do |label, relative_path|
   path = site_root.join(relative_path)
-  errors << "missing #{label}: #{relative_path}" unless path.file? && !path.empty?
+  errors << "missing #{label}: #{relative_path}" unless path.file? && path.size.positive?
 end
 
 cname = site_root.join("CNAME")
@@ -46,5 +46,5 @@ unless errors.empty?
   exit 1
 end
 
-html_count = Dir.glob(site_root.join("**/*.html")).length
+html_count = Dir.glob(site_root.join("**/*.html").to_s).length
 puts "Site smoke checks passed (#{html_count} generated HTML files)."
