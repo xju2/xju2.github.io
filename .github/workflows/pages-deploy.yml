@@ -1,18 +1,23 @@
-name: Site CI
+name: Deploy site
 
 on:
-  pull_request:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: site-ci-${{ github.ref }}
-  cancel-in-progress: true
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   build:
-    name: Build and smoke test
+    name: Build and package
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -27,6 +32,10 @@ jobs:
 
       - name: Install dependencies
         run: bundle install --jobs 4 --retry 3
+
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
 
       - name: Build site
         run: make site
@@ -47,11 +56,21 @@ jobs:
         if: always()
         run: make smoke-liquid
 
-      - name: Upload generated site
-        if: always()
-        uses: actions/upload-artifact@v4
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
         with:
-          name: generated-site
           path: _site
-          if-no-files-found: error
-          retention-days: 7
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy artifact
+        id: deployment
+        uses: actions/deploy-pages@v4

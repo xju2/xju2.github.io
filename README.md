@@ -38,6 +38,12 @@ rendering. See
 [`docs/site-modernization-baseline.md`](docs/site-modernization-baseline.md)
 for the compatibility boundary and deferred modernization work.
 
+## Publishing
+
+Pull requests are built and smoke-tested without deployment. Production builds
+from `master` use the explicit GitHub Pages workflow described in
+[`docs/pages-deployment.md`](docs/pages-deployment.md).
+
 ## CV PDF
 
 The Makefile's default target continues to build `tex_files/main.tex`:
