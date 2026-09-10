@@ -31,8 +31,11 @@ jobs:
       - name: Install dependencies
         run: bundle install --jobs 4 --retry 3
 
-      - name: Build and check site
-        run: make check
+      - name: Build site
+        run: make site
+
+      - name: Run site smoke tests
+        run: ruby scripts/check_site.rb _site
 
       - name: Upload generated site
         if: always()
