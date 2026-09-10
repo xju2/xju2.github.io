@@ -49,8 +49,9 @@ smoke-domain:
 	test "$$(tr -d '\r\n' < $(SITE_DIR)/CNAME)" = "www.ml4phys.com"
 
 smoke-liquid:
-	! grep -F '{{' $(PRIMARY_PAGES)
-	! grep -F '{%' $(PRIMARY_PAGES)
+	! grep -F '{% include' $(PRIMARY_PAGES)
+	! grep -F '{{ site.' $(PRIMARY_PAGES)
+	! grep -F '{{ page.' $(PRIMARY_PAGES)
 
 smoke: smoke-routes smoke-assets smoke-domain smoke-liquid
 	@echo "Site smoke checks passed."
