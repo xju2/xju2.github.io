@@ -34,7 +34,35 @@ jobs:
       - name: Build site
         run: make site
 
-      - name: Run site smoke tests
+      - name: Diagnose required routes
+        if: always()
+        run: |
+          test -s _site/index.html
+          test -s _site/projects/index.html
+          test -s _site/publications/index.html
+          test -s _site/talks/index.html
+          test -s _site/students/index.html
+
+      - name: Diagnose generated support files
+        if: always()
+        run: |
+          test -s _site/sitemap.xml
+          test -s _site/CNAME
+          test -s _site/assets/css/main.css
+          test -s _site/assets/js/main.min.js
+
+      - name: Diagnose custom domain
+        if: always()
+        run: test "$(tr -d '\r\n' < _site/CNAME)" = "www.ml4phys.com"
+
+      - name: Diagnose rendered Liquid
+        if: always()
+        run: |
+          ! grep -F '{{' _site/index.html _site/projects/index.html _site/publications/index.html _site/talks/index.html _site/students/index.html
+          ! grep -F '{%' _site/index.html _site/projects/index.html _site/publications/index.html _site/talks/index.html _site/students/index.html
+
+      - name: Run complete site smoke test
+        if: always()
         run: ruby scripts/check_site.rb _site
 
       - name: Upload generated site
