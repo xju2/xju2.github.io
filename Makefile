@@ -11,8 +11,14 @@ TARGET := $(BUILD_DIR)/$(MAIN).pdf
 BUNDLE ?= bundle
 JEKYLL := $(BUNDLE) exec jekyll
 SITE_DIR ?= _site
+PRIMARY_PAGES := \
+	$(SITE_DIR)/index.html \
+	$(SITE_DIR)/projects/index.html \
+	$(SITE_DIR)/publications/index.html \
+	$(SITE_DIR)/talks/index.html \
+	$(SITE_DIR)/students/index.html
 
-.PHONY: all clean install site serve check
+.PHONY: all clean install site serve smoke check
 
 # Preserve the repository's existing default: build the CV PDF.
 all: $(TARGET)
@@ -26,8 +32,22 @@ site:
 serve:
 	$(JEKYLL) serve --livereload --config _config.yml,_config.dev.yml
 
-check: site
-	bash scripts/check_site.sh $(SITE_DIR)
+smoke:
+	test -s $(SITE_DIR)/index.html
+	test -s $(SITE_DIR)/projects/index.html
+	test -s $(SITE_DIR)/publications/index.html
+	test -s $(SITE_DIR)/talks/index.html
+	test -s $(SITE_DIR)/students/index.html
+	test -s $(SITE_DIR)/sitemap.xml
+	test -s $(SITE_DIR)/CNAME
+	test -s $(SITE_DIR)/assets/css/main.css
+	test -s $(SITE_DIR)/assets/js/main.min.js
+	test "$$(tr -d '\r\n' < $(SITE_DIR)/CNAME)" = "www.ml4phys.com"
+	! grep -F '{{' $(PRIMARY_PAGES)
+	! grep -F '{%' $(PRIMARY_PAGES)
+	@echo "Site smoke checks passed."
+
+check: site smoke
 
 $(BUILD_DIR):
 	mkdir -p $@
