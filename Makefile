@@ -27,7 +27,7 @@ serve:
 	$(JEKYLL) serve --livereload --config _config.yml,_config.dev.yml
 
 check: site
-	ruby scripts/check_site.rb $(SITE_DIR)
+	bash scripts/check_site.sh $(SITE_DIR)
 
 $(BUILD_DIR):
 	mkdir -p $@

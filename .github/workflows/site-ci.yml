@@ -35,7 +35,7 @@ jobs:
         run: make site
 
       - name: Run site smoke tests
-        run: ruby scripts/check_site.rb _site
+        run: bash scripts/check_site.sh _site
 
       - name: Upload generated site
         if: always()
