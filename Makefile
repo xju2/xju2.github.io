@@ -51,7 +51,7 @@ smoke-assets:
 	test -s $(SITE_DIR)/sitemap.xml
 	test -s $(SITE_DIR)/CNAME
 	test -s $(SITE_DIR)/assets/css/main.css
-	for asset in $(JS_ASSETS); do test -s "$$asset"; done
+	for asset in $(JS_ASSETS); do test -s "$$asset" || { echo "Missing asset: $$asset" >&2; exit 1; }; done
 
 smoke-domain:
 	test "$$(tr -d '\r\n' < $(SITE_DIR)/CNAME)" = "www.ml4phys.com"
