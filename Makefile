@@ -17,8 +17,16 @@ PRIMARY_PAGES := \
 	$(SITE_DIR)/publications/index.html \
 	$(SITE_DIR)/talks/index.html \
 	$(SITE_DIR)/students/index.html
+JS_ASSETS := \
+	$(SITE_DIR)/assets/js/vendor/jquery/jquery-3.7.1.min.js \
+	$(SITE_DIR)/assets/js/plugins/jquery.fitvids.js \
+	$(SITE_DIR)/assets/js/plugins/jquery.greedy-navigation.js \
+	$(SITE_DIR)/assets/js/plugins/jquery.magnific-popup.js \
+	$(SITE_DIR)/assets/js/plugins/jquery.smooth-scroll.min.js \
+	$(SITE_DIR)/assets/js/plugins/stickyfill.min.js \
+	$(SITE_DIR)/assets/js/_main.js
 
-.PHONY: all clean install site serve check smoke smoke-routes smoke-assets smoke-domain smoke-liquid
+.PHONY: all clean install site serve check smoke smoke-routes smoke-assets smoke-domain smoke-liquid smoke-runtime
 
 # Preserve the repository's existing default: build the CV PDF.
 all: $(TARGET)
@@ -43,7 +51,7 @@ smoke-assets:
 	test -s $(SITE_DIR)/sitemap.xml
 	test -s $(SITE_DIR)/CNAME
 	test -s $(SITE_DIR)/assets/css/main.css
-	test -s $(SITE_DIR)/assets/js/main.min.js
+	for asset in $(JS_ASSETS); do test -s "$$asset"; done
 
 smoke-domain:
 	test "$$(tr -d '\r\n' < $(SITE_DIR)/CNAME)" = "www.ml4phys.com"
@@ -53,7 +61,13 @@ smoke-liquid:
 	! grep -F '{{ site.' $(PRIMARY_PAGES)
 	! grep -F '{{ page.' $(PRIMARY_PAGES)
 
-smoke: smoke-routes smoke-assets smoke-domain smoke-liquid
+smoke-runtime:
+	grep -Fq '/assets/js/vendor/jquery/jquery-3.7.1.min.js' $(SITE_DIR)/index.html
+	! grep -Fq 'jquery-1.12.4' $(SITE_DIR)/index.html
+	test "$$(grep -o 'mathjax@4.1.3/tex-mml-chtml.js' $(SITE_DIR)/index.html | wc -l)" -eq 1
+	! grep -Fq 'MathJax.Hub.Config' $(SITE_DIR)/index.html
+
+smoke: smoke-routes smoke-assets smoke-domain smoke-liquid smoke-runtime
 	@echo "Site smoke checks passed."
 
 check: site smoke
