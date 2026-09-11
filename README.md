@@ -36,7 +36,9 @@ The generated site is written to `_site/`. The smoke test verifies the main
 public routes, compiled assets, sitemap, custom domain, and successful Liquid
 rendering. See
 [`docs/site-modernization-baseline.md`](docs/site-modernization-baseline.md)
-for the compatibility boundary and deferred modernization work.
+for the compatibility boundary and deferred modernization work. Browser-side
+libraries and the remaining theme compatibility layer are documented in
+[`docs/browser-runtime.md`](docs/browser-runtime.md).
 
 ## Publishing
 
