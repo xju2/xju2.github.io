@@ -10,7 +10,7 @@ styles while using a small, explicit browser runtime.
 1. vendored jQuery 3.7.1;
 2. the existing FitVids, greedy-navigation, Magnific Popup, smooth-scroll, and
    Stickyfill compatibility plugins;
-3. the site's `assets/js/_main.js` initialization.
+3. the site's `assets/js/site.js` initialization.
 
 The scripts are served directly instead of being copied into a generated bundle.
 This removes the obsolete Node 0.10, UglifyJS 2, and npm-run-all 1 build

@@ -24,7 +24,7 @@ JS_ASSETS := \
 	$(SITE_DIR)/assets/js/plugins/jquery.magnific-popup.js \
 	$(SITE_DIR)/assets/js/plugins/jquery.smooth-scroll.min.js \
 	$(SITE_DIR)/assets/js/plugins/stickyfill.min.js \
-	$(SITE_DIR)/assets/js/_main.js
+	$(SITE_DIR)/assets/js/site.js
 
 .PHONY: all clean install site serve check smoke smoke-routes smoke-assets smoke-domain smoke-liquid smoke-runtime
 
