@@ -2,6 +2,19 @@
 import hashlib
 from pathlib import Path
 import sys
+import os
+
+def report(result):
+    print(result)
+    if "GITHUB_OUTPUT" in os.environ:
+        with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+            output.write("result=" + result.replace("\n", " ")[:200] + "\n")
+
+def failure(kind, error, traceback):
+    report(str(error))
+    sys.__excepthook__(kind, error, traceback)
+
+sys.excepthook = failure
 
 before, after = map(Path, sys.argv[1:3])
 old_routes = {p.relative_to(before) for p in before.rglob("*.html")}
@@ -16,4 +29,4 @@ for old in pdfs:
     assert hashlib.sha256(old.read_bytes()).digest() == hashlib.sha256(new.read_bytes()).digest(), f"Changed download: {new}"
 for path in ("CNAME", "talkmap/map.html"):
     assert (before / path).read_bytes() == (after / path).read_bytes(), f"Changed {path}"
-print(f"Preserved {len(old_routes)} HTML routes and {len(pdfs)} PDFs, CNAME and talk map.")
+report(f"Preserved {len(old_routes)} HTML routes and {len(pdfs)} PDFs, CNAME and talk map.")

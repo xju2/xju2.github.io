@@ -4,6 +4,20 @@ from playwright.sync_api import sync_playwright
 import functools
 import http.server
 import threading
+import os
+import sys
+
+def report(result):
+    print(result)
+    if "GITHUB_OUTPUT" in os.environ:
+        with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+            output.write("result=" + result.replace("\n", " ")[:200] + "\n")
+
+def failure(kind, error, traceback):
+    report(str(error) or kind.__name__)
+    sys.__excepthook__(kind, error, traceback)
+
+sys.excepthook = failure
 
 root = Path("_browser-site").resolve()
 server = http.server.ThreadingHTTPServer(("127.0.0.1", 4000), functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(root)))
@@ -48,4 +62,4 @@ with sync_playwright() as p:
     browser.close()
 server.shutdown()
 assert not errors, "\n".join(errors)
-print("Desktop/mobile routes, menus, math, BibTeX and student rows passed.")
+report("Desktop/mobile routes, menus, math, BibTeX and student rows passed.")

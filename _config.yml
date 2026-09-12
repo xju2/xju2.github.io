@@ -149,7 +149,6 @@ exclude:
   - package.json
   - tmp
   - scripts
-  - docs
   - vendor
 keep_files:
   - .git
