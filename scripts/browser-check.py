@@ -14,7 +14,7 @@ def report(result):
             output.write("result=" + result.replace("\n", " ")[:200] + "\n")
 
 def failure(kind, error, traceback):
-    report(str(error) or kind.__name__)
+    report(f"{globals().get('width', 'startup')} {globals().get('route', '')}: {str(error) or kind.__name__}")
     sys.__excepthook__(kind, error, traceback)
 
 sys.excepthook = failure
@@ -35,29 +35,29 @@ with sync_playwright() as p:
         for route in ("/", "/projects/", "/publications/", "/talks/", "/students/", "/terms/"):
             page.goto("http://127.0.0.1:4000" + route, wait_until="networkidle")
             page.wait_for_function("window.jQuery && jQuery.fn.jquery === '3.7.1'")
-            assert page.locator("h1").first.inner_text().strip()
-            assert page.locator(".author__avatar img").evaluate("(img) => img.complete && img.naturalWidth > 0")
+            assert page.locator("h1").first.inner_text().strip(), "Missing heading"
+            assert page.locator(".author__avatar img").evaluate("(img) => img.complete && img.naturalWidth > 0"), "Profile image failed"
             if route == "/":
                 page.wait_for_selector("mjx-container", timeout=60000)
-                assert page.locator('a[href*="scholar.google.com"]').count()
-                assert page.locator('a[href*="orcid.org"]').count()
+                assert page.locator('a[href*="scholar.google.com"]').count(), "Scholar link missing"
+                assert page.locator('a[href*="orcid.org"]').count(), "ORCID link missing"
                 if width == 390:
                     page.locator(".author__urls-wrapper button").click()
-                    assert page.locator(".author__urls").is_visible()
+                    assert page.locator(".author__urls").is_visible(), "Follow menu did not open"
                     page.locator(".author__urls-wrapper button").click()
                     toggle = page.locator(".greedy-nav__toggle")
-                    assert toggle.is_visible()
+                    assert toggle.is_visible(), "Navigation toggle missing"
                     toggle.click()
-                    assert page.locator(".greedy-nav .hidden-links").is_visible()
+                    assert page.locator(".greedy-nav .hidden-links").is_visible(), "Navigation menu did not open"
                     toggle.click()
             if route == "/publications/":
                 button = page.get_by_role("button", name="BibTeX", exact=False).first
                 button.click()
-                assert page.locator('.bibTexContainer:visible').count() > 0
+                assert page.locator('.bibTexContainer:visible').count() > 0, 'BibTeX did not expand'
             if route == "/students/":
                 rows = page.locator(".students-table tbody tr")
-                assert rows.count() > 0
-                assert all(rows.nth(i).locator("td").count() == 8 for i in range(rows.count()))
+                assert rows.count() > 0, "No student rows"
+                assert all(rows.nth(i).locator("td").count() == 8 for i in range(rows.count())), "Student column counts: " + str([rows.nth(i).locator("td").count() for i in range(rows.count())])
             page.screenshot(path=str(shots / f"{route.strip('/') or 'home'}-{width}.png"), full_page=True)
     browser.close()
 server.shutdown()
