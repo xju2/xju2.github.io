@@ -81,7 +81,7 @@ analytics:
 # Site Author
 author:
   name             : "Xiangyang Ju"
-  avatar           : "profile.png"
+  avatar           : "/images/profile.png"
   bio              : "Ph.D in Physics"
   location         : "Berkeley, CA, USA"
   employer         : 
@@ -139,6 +139,7 @@ exclude:
   - Gemfile
   - Gruntfile.js
   - LICENSE
+  - LICENSE.minimal-mistakes
   - README
   - Rakefile
   - config
@@ -147,6 +148,7 @@ exclude:
   - node_modules
   - package.json
   - tmp
+  - scripts
   - vendor
 keep_files:
   - .git
@@ -204,7 +206,7 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
+      layout: academic
       author_profile: true
       read_time: true
       comments: true
@@ -215,14 +217,14 @@ defaults:
       path: ""
       type: pages
     values:
-      layout: single
+      layout: academic
       author_profile: true
   # _teaching
   - scope:
       path: ""
       type: teaching
     values:
-      layout: single
+      layout: academic
       author_profile: true
       share: false
       comments: true
@@ -231,7 +233,7 @@ defaults:
       path: ""
       type: publications
     values:
-      layout: single
+      layout: academic
       author_profile: true
       share: false
       comments: true
@@ -240,7 +242,7 @@ defaults:
       path: ""
       type: portfolio
     values:
-      layout: single
+      layout: academic
       author_profile: true
       share: false
       comment: true
@@ -258,7 +260,7 @@ defaults:
       path: ""
       type: students
     values:
-      layout: single
+      layout: academic
       author_profile: true
       share: false
       comment: true
@@ -283,6 +285,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-include-cache
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
@@ -328,4 +331,25 @@ compress_html:
   ignore:
     envs: development
 
-theme: jekyll-theme-cayman
+theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: default
+
+# Use the theme plugins with our newer jQuery instead of its 3.6.0 bundle.
+footer_scripts:
+  - /assets/js/vendor/jquery/jquery-3.7.1.min.js
+  - /assets/js/plugins/jquery.ba-throttle-debounce.js
+  - /assets/js/plugins/jquery.fitvids.js
+  - /assets/js/plugins/jquery.greedy-navigation.js
+  - /assets/js/plugins/jquery.magnific-popup.js
+  - /assets/js/plugins/smooth-scroll.js
+  - /assets/js/plugins/gumshoe.js
+  - /assets/js/site.js
+footer:
+  links:
+    - label: GitHub
+      icon: fab fa-fw fa-github
+      url: https://github.com/xju2
+
+# Academic controls are kept separate from the unchanged theme initializer.
+after_footer_scripts:
+  - /assets/js/academic.js

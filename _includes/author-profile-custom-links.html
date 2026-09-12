@@ -1,0 +1,6 @@
+{% if author.googlescholar %}
+<li><a href="{{ author.googlescholar }}" itemprop="sameAs" rel="me"><i class="ai ai-google-scholar ai-fw" aria-hidden="true"></i> Google Scholar</a></li>
+{% endif %}
+{% if author.orcid %}
+<li><a href="{{ author.orcid }}" itemprop="sameAs" rel="me"><i class="ai ai-orcid ai-fw" aria-hidden="true"></i> ORCID</a></li>
+{% endif %}
