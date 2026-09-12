@@ -56,6 +56,10 @@ jobs:
         if: always()
         run: make smoke-liquid
 
+      - name: Verify browser runtime
+        if: always()
+        run: make smoke-runtime
+
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:

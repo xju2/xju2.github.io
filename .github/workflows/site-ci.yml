@@ -47,6 +47,10 @@ jobs:
         if: always()
         run: make smoke-liquid
 
+      - name: Verify browser runtime
+        if: always()
+        run: make smoke-runtime
+
       - name: Upload generated site
         if: always()
         uses: actions/upload-artifact@v4
