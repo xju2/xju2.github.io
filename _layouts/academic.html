@@ -1,0 +1,21 @@
+---
+layout: single
+---
+
+{% if page.modified %}<p class="page__date"><strong>Updated:</strong> <time datetime="{{ page.modified | date_to_xmlschema }}">{{ page.modified | date: "%B %d, %Y" }}</time></p>{% endif %}
+{% if page.collection == 'talks' %}
+  {% if page.date %}<p class="page__date"><strong>Date:</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></p>{% endif %}
+  {% assign talk_type = page.talk_type | default: page.type %}
+  {% if talk_type or page.venue %}<p>{{ talk_type }}{% if page.venue %} at {{ page.venue }}{% endif %}{% if page.location %}, {{ page.location }}{% endif %}</p>{% endif %}
+{% elsif page.collection == 'teaching' %}
+  <p>{{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | date: "%Y" }}</p>
+{% elsif page.venue and page.date %}
+  <p>Published in <i>{{ page.venue }}</i>, {{ page.date | date: "%Y" }}</p>
+{% elsif page.date %}
+  <p class="page__date"><strong>Published:</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></p>
+{% endif %}
+{% if page.citation %}
+  <p>Recommended citation: {{ page.citation }}{% if page.paperurl %} <a href="{{ page.paperurl }}">{{ page.paperurl }}</a>{% endif %}</p>
+{% endif %}
+
+{{ content }}

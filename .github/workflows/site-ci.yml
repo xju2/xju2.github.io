@@ -14,7 +14,7 @@ jobs:
   build:
     name: Build and smoke test
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
 
     steps:
       - name: Check out repository
@@ -47,7 +47,7 @@ jobs:
         if: always()
         run: make smoke-liquid
 
-      - name: Verify browser runtime
+      - name: Verify runtime references
         if: always()
         run: make smoke-runtime
 
@@ -58,4 +58,41 @@ jobs:
           name: generated-site
           path: _site
           if-no-files-found: error
+          retention-days: 7
+
+      - name: Check out baseline
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: _baseline
+
+      - name: Build baseline
+        working-directory: _baseline
+        run: |
+          bundle install --jobs 4 --retry 3
+          make site
+
+      - name: Compare routes and downloads
+        run: python scripts/compare-site.py _baseline/_site _site
+
+      - name: Install browser checks
+        run: |
+          python -m pip install playwright==1.58.0
+          python -m playwright install --with-deps chromium
+
+      - name: Build browser fixture
+        run: |
+          printf 'url: http://127.0.0.1:4000\n' > /tmp/browser-config.yml
+          JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter --config _config.yml,/tmp/browser-config.yml --destination _browser-site
+
+      - name: Check desktop and mobile behavior
+        run: python scripts/browser-check.py
+
+      - name: Upload browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-results
+          path: browser-results
+          if-no-files-found: warn
           retention-days: 7
