@@ -52,3 +52,8 @@ normal site configuration. External links are not a blocking crawl.
 Review the screenshots before merging, especially the publications, talks and
 students pages. CI behavior checks do not establish pixel-level visual parity.
 Rollback is a revert of this PR; no content/data migration is involved.
+
+The browser check exposed a pre-existing BibTeX quoting failure in the newest
+citation. Academic controls now use escaped data attributes and textContent in
+assets/js/academic.js, so quotes and LaTeX text are not executed as JavaScript.
+Citation data is unchanged; PDF opening and BibTeX expansion/copy remain available.

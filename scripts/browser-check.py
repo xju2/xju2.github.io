@@ -41,6 +41,8 @@ with sync_playwright() as p:
                 page.wait_for_selector("mjx-container", timeout=60000)
                 assert page.locator('a[href*="scholar.google.com"]').count(), "Scholar link missing"
                 assert page.locator('a[href*="orcid.org"]').count(), "ORCID link missing"
+                for href in ("mailto:xju@lbl.gov", "https://github.com/xju2", "https://www.linkedin.com/in/xiangyangju2015"):
+                    assert page.locator(f'.author__urls a[href="{href}"]').count() == 1, f"Contact link missing or duplicated: {href}"
                 if width == 390:
                     page.locator(".author__urls-wrapper button").click()
                     assert page.locator(".author__urls").is_visible(), "Follow menu did not open"
@@ -54,6 +56,9 @@ with sync_playwright() as p:
                 button = page.get_by_role("button", name="BibTeX", exact=False).first
                 button.click()
                 assert page.locator('.bibTexContainer:visible').count() > 0, 'BibTeX did not expand'
+                assert "@" in page.locator('.bibTexContainer:visible').inner_text(), "Citation text missing"
+                button.click()
+                assert page.locator('.bibTexContainer:visible').count() == 0, "BibTeX did not collapse"
             if route == "/students/":
                 rows = page.locator(".students-table tbody tr")
                 assert rows.count() > 0, "No student rows"

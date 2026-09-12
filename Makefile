@@ -25,7 +25,8 @@ JS_ASSETS := \
 	$(SITE_DIR)/assets/js/plugins/jquery.magnific-popup.js \
 	$(SITE_DIR)/assets/js/plugins/smooth-scroll.js \
 	$(SITE_DIR)/assets/js/plugins/gumshoe.js \
-	$(SITE_DIR)/assets/js/site.js
+	$(SITE_DIR)/assets/js/site.js \
+	$(SITE_DIR)/assets/js/academic.js
 
 .PHONY: all clean install site serve check smoke smoke-routes smoke-assets smoke-domain smoke-liquid smoke-runtime
 

@@ -23,7 +23,7 @@
     background-color: #ddd;
   }
 
-  #bibTexContainer {
+  .bibTexContainer {
     white-space: pre-wrap;
     word-wrap: break-word;
     max-width: 100%;
@@ -78,10 +78,10 @@
       {{ post.authors }}. "{{ post.title }}". <i>{{ post.venue }}</i>. {{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}. 
         <!-- Open link button -->
         {% if post.link %}
-          <button class="button" type="button" onclick="openLink('{{ post.link | escape }}')">PDF</button>
+          <button class="button" type="button" data-paper-url="{{ post.link | escape }}">PDF</button>
         {% endif %}
         <!-- Button -->
-        <button class="button" type="button" onclick="showBibTex('{{ post.bibtex }}', '{{ post.id }}')">BibTeX</button>
+        <button class="button" type="button" data-bibtex="{{ post.bibtex | escape }}" data-post-id="{{ post.id | escape }}" aria-expanded="false" aria-controls="bibTexContainer_{{ post.id | escape }}">BibTeX</button>
 
 
       <!-- PDF label
@@ -91,42 +91,6 @@
        -->
         <!-- Placeholder for BibTeX text -->
         <div id="bibTexContainer_{{ post.id }}" class="bibTexContainer" style="display: none;"></div>
-
-        <script>
-          function showBibTex(bibTex, postId) {
-            var bibTexContainer = document.getElementById('bibTexContainer_' + postId);
-
-            if (bibTexContainer.style.display === 'none') {
-              newbibTex = bibTex.replace(/\n/g, '<br>');
-              newbibTex = newbibTex.replace(/&lbrace;/g, '{').replace(/&rbrace;/g, '}'); 
-              bibTexContainer.innerHTML = newbibTex;
-              bibTexContainer.style.display = 'block';
-              var copyButton = document.createElement('button');
-              copyButton.className = 'copy-button';
-              copyButton.textContent = 'Copy BibTeX';
-              copyButton.addEventListener('click', function() {
-                copyToClipboard(bibTex);
-              });
-              bibTexContainer.appendChild(copyButton);
-            } else {
-              bibTexContainer.innerHTML = '';
-              bibTexContainer.style.display = 'none';
-            }
-          }
-
-          function openLink(link) {
-            window.open(link, '_blank');
-          }
-
-        function copyToClipboard(text) {
-          var tempInput = document.createElement('textarea');
-          tempInput.value = text;
-          document.body.appendChild(tempInput);
-          tempInput.select();
-          document.execCommand('copy');
-          document.body.removeChild(tempInput);
-        }
-        </script>
 
     </p>
 	</li>

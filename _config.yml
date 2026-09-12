@@ -349,3 +349,7 @@ footer:
     - label: GitHub
       icon: fab fa-fw fa-github
       url: https://github.com/xju2
+
+# Academic controls are kept separate from the unchanged theme initializer.
+after_footer_scripts:
+  - /assets/js/academic.js
