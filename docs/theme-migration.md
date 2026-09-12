@@ -14,7 +14,7 @@ layouts/includes, old plugins and unused Font Awesome JavaScript are removed.
 Local code retains the academic archive includes, student tables, legacy
 base_path/group-by-array/read-time/toc helpers, analytics, favicons, math loader,
 and footer sitemap link. The academic layout wraps the upstream single layout
-with publication/teaching metadata and citations. The talk layout wraps academic;
+with publication metadata and citations. The talk layout wraps academic;
 it uses the actual talk date and accepts the existing type field as well as
 talk_type. The upstream single layout supplies direct-link buttons.
 

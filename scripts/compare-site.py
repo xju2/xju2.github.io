@@ -16,13 +16,20 @@ def failure(kind, error, traceback):
 
 sys.excepthook = failure
 
+# Top-level paths intentionally removed with the template samples and content tooling.
+RETIRED = {"teaching", "archive-layout-with-content", "collection-archive", "page-archive",
+           "markdown_generator", "tex_files"}
+
+def kept(path):
+    return path.parts[0] not in RETIRED
+
 before, after = map(Path, sys.argv[1:3])
-old_routes = {p.relative_to(before) for p in before.rglob("*.html")}
+old_routes = {p.relative_to(before) for p in before.rglob("*.html") if kept(p.relative_to(before))}
 new_routes = {p.relative_to(after) for p in after.rglob("*.html")}
 missing = old_routes - new_routes
 assert old_routes, "Baseline build is empty"
 assert not missing, f"Removed routes: {sorted(map(str, missing))}"
-pdfs = list(before.rglob("*.pdf"))
+pdfs = [p for p in before.rglob("*.pdf") if kept(p.relative_to(before))]
 for old in pdfs:
     new = after / old.relative_to(before)
     assert new.is_file(), f"Missing download: {new}"
