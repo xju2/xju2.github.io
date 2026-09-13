@@ -1,24 +1,53 @@
 ---
 layout: archive
-title: "Projects"
+title: "Software & Projects"
 permalink: /projects/
 author_profile: true
+excerpt: "Agentic workflows, scientific foundation models, and shared inference infrastructure."
 ---
-{% include base_path %}
 
-Last update is on 10 April, 2024.
+I develop systems that connect machine learning to scientific data and computing. These projects span active research and deployed infrastructure; the descriptions distinguish their goals from published results.
 
-This page lists the projects I am working on or interested in.
+## HepGateway
 
-## Machine Learning for Particle Physics
-* **Agentic AI for HEP** Agentic AI system are rapidly evovling in industry but lacks adoption in academia.
-Scientific workflows often involves in labor-intensive and repetitive steps that could potentially enjoy
-full automation using Agentic AI.
+**Focus: agentic AI for scientific workflows · Active development**
 
-* **Language models for particle detectors.** Language models have revolutionized natural language understanding. Particle detectors are complex apparatuses whose language is made of data organized in sub-detectors and readout modules. The project aims to train a language model that understands a detector’s vocabulary and can translate its raw data to higher-level constructs like clusters, tracks, jets, etc.
+Scientists need to coordinate data access, software environments, job execution, and interpretation. I am developing HepGateway to bring these interactions into a unified platform connected to HPC resources, with NERSC as the initial deployment setting.
 
-* **Pattern recognition in a point cloud of measurements** Scientific data are often represented as 3D points, each associated with measurements (like a point cloud). Pattern recognition in a point cloud of measurements is challenging due to its combinatorial complexity. The project aims to leverage deep learning models to solve the issue.
+An analysis is represented as a typed executable graph. Work nodes use AI agents to transform input artifacts into schema-validated outputs. Control nodes evaluate outputs and decide what runs next, including bounded revision loops. AI agents carry out workflow actions; machine-learning models remain scientific tools that those workflows can use.
 
-* **Deep generative models for simulation**. Particle simulations are often computationally expensive. The project aims to use deep generative models to simulate particle interactions with high fidelity and low computational cost.
+The evaluation goal is to reproduce a published analysis and measure manual interventions, time to a successful result, and provenance coverage. This is ongoing work, with evaluation results still to come.
 
-* **Anomaly detection in a point cloud of measurements**. Representing learning is proven to be a powerful self-supervised learning technique. However, how to leverage the learned representation for anomaly detection in a point cloud of measurements is still an open question.
+[Discuss HepGateway](mailto:xju@lbl.gov?subject=HepGateway)
+
+## Foundational Universe
+
+**Focus: foundation models for scientific fields · Research in progress**
+
+Large simulations contain rich structure that is expensive to store and difficult to model jointly. I am studying compact learned representations of Nyx cosmological simulations, which contain six physical fields defined on a three-dimensional grid.
+
+The approach uses a VQ-VAE with residual vector quantization to turn simulation chunks into discrete tokens. A hierarchical autoregressive model is being developed to capture dependencies across spatial regions, sites, and quantization levels. The goal is to support high-fidelity generation and transfer to downstream scientific tasks while testing what physical information survives compression.
+
+[Discuss scientific field models](mailto:xju@lbl.gov?subject=Foundational%20Universe)
+
+## Inference as a Service
+
+**Focus: shared ML inference and HPC integration · Deployment and performance studies**
+
+Physics applications increasingly depend on models that benefit from GPUs, while their event processing may run on CPUs. I develop inference services and client integration that let multiple applications share accelerator resources.
+
+The work combines NVIDIA Triton Inference Server with ATLAS Athena integration and deployments at NERSC and the University of Chicago Analysis Facility. Current studies examine concurrency, load balancing, autoscaling, and end-to-end performance. Athena manages event processing while remote services execute machine-learning inference and, in tracking applications, reconstruction stages.
+
+A published tracking-as-a-service study provides a concrete example of this direction. Ongoing Athena–Triton work extends the integration and its performance evaluation.
+
+[Tracking-as-a-service paper](https://arxiv.org/abs/2501.05520) · [Contact me about integration](mailto:xju@lbl.gov?subject=Inference%20as%20a%20Service)
+
+## Tracking and reconstruction
+
+**Focus: learning from detector measurements · Published methods and ongoing development**
+
+Track finding turns large point clouds of detector measurements into particle trajectories. My work explores graph neural networks and token-based Transformer models for this task, including ExaTrkX, GNN4ITk, and TrackSorter. These methods connect representation learning to the physics and computing requirements of reconstruction.
+
+[TrackSorter](https://arxiv.org/abs/2407.21290) · [Geometric deep learning for hyperon tracking](https://arxiv.org/abs/2503.14305) · [Recent presentation]({{ '/talks/2025-11-09' | relative_url }})
+
+For publicly available software, see my [GitHub profile](https://github.com/xju2). For projects without a public release, please [get in touch](mailto:xju@lbl.gov).

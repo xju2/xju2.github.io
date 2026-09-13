@@ -32,7 +32,7 @@ with sync_playwright() as p:
     page.on("response", lambda response: errors.append(f"{response.status}: {response.url}") if response.url.startswith("http://127.0.0.1:4000/") and response.status >= 400 else None)
     for width in (1440, 390):
         page.set_viewport_size({"width": width, "height": 1000})
-        for route in ("/", "/projects/", "/publications/", "/talks/", "/students/", "/terms/"):
+        for route in ("/", "/research/", "/projects/", "/publications/", "/talks/", "/students/", "/terms/"):
             page.goto("http://127.0.0.1:4000" + route, wait_until="networkidle")
             page.wait_for_function("window.jQuery && jQuery.fn.jquery === '3.7.1'")
             assert page.locator("h1").first.inner_text().strip(), "Missing heading"
@@ -52,7 +52,11 @@ with sync_playwright() as p:
                     toggle.click()
                     assert page.locator(".greedy-nav .hidden-links").is_visible(), "Navigation menu did not open"
                     toggle.click()
+            if route in ("/", "/research/", "/projects/", "/students/"):
+                assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"), "Page overflows viewport"
             if route == "/publications/":
+                assert page.locator('.selected-work li').count() == 5, "Expected five selected publications"
+                assert page.locator('ol .archive__item').filter(has_text="Integrating Particle Flavor into Deep Learning Models for Hadronization").count() == 1, "Duplicate publication in archive"
                 button = page.get_by_role("button", name="BibTeX", exact=False).first
                 button.click()
                 assert page.locator('.bibTexContainer:visible').count() > 0, 'BibTeX did not expand'
@@ -68,3 +72,4 @@ with sync_playwright() as p:
 server.shutdown()
 assert not errors, "\n".join(errors)
 report("Desktop/mobile routes, menus, math, BibTeX and student rows passed.")
+

@@ -5,6 +5,7 @@ SITE_DIR ?= _site
 PRIMARY_PAGES := \
 	$(SITE_DIR)/index.html \
 	$(SITE_DIR)/projects/index.html \
+	$(SITE_DIR)/research/index.html \
 	$(SITE_DIR)/publications/index.html \
 	$(SITE_DIR)/talks/index.html \
 	$(SITE_DIR)/students/index.html
@@ -35,6 +36,7 @@ serve:
 smoke-routes:
 	test -s $(SITE_DIR)/index.html
 	test -s $(SITE_DIR)/projects/index.html
+	test -s $(SITE_DIR)/research/index.html
 	test -s $(SITE_DIR)/publications/index.html
 	test -s $(SITE_DIR)/talks/index.html
 	test -s $(SITE_DIR)/students/index.html
@@ -66,3 +68,4 @@ check: site smoke
 
 clean:
 	rm -rf $(SITE_DIR)
+

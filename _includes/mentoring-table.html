@@ -1,0 +1,18 @@
+<div class="mentoring-table-scroll" role="region" aria-label="{{ include.label | escape }}; scroll horizontally for all columns" tabindex="0">
+<table class="students-table" id="{{ include.table_id }}">
+  <caption>{{ include.label }}: research, publications, and destinations</caption>
+  <thead><tr>
+    <th scope="col">#</th><th scope="col">Name</th><th scope="col">Research</th>
+    <th scope="col">Start date</th><th scope="col">End date</th>
+    <th scope="col">Position in record</th><th scope="col">Paper</th><th scope="col">Project</th>
+  </tr></thead>
+  <tbody>
+  {% for student in include.students reversed %}
+    <tr>
+      <td>{{ forloop.rindex }}</td>
+      {% include archive-single-student.html %}
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>

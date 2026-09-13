@@ -1,33 +1,48 @@
 ---
 permalink: /
-title: "About me"
-excerpt: "About me"
+title: "HPC-native AI systems for scientific discovery"
+excerpt: "I build AI systems that connect scientific intent with data, software, and large-scale computing."
 author_profile: true
-redirect_from: 
+redirect_from:
   - /about/
   - /about.html
 ---
-{% include base_path %}
 
-I am a computing system engineer in the scientific data division at the Berkeley Lab, focusing on particle physics and machine learning. I am also a member of the ATLAS experiment at the Large Hadron Collider. 
+<div class="research-intro" markdown="1">
+I build AI systems that connect scientific intent with data, software, and large-scale computing. At Berkeley Lab, I develop agentic scientific workflows, foundation models, and inference infrastructure, with applications in particle physics and cosmology.
+</div>
 
-In particle physics, my research interest is to understand the electroweak interactions; in machine learning, I am interested in developing softwares and machine learning models to enable precision physics measurements and the search for new physics. 
+I am a Computing System Engineer in the Scientific Data Division at Lawrence Berkeley National Laboratory and a member of the ATLAS Collaboration at the Large Hadron Collider. My research asks how AI and high-performance computing can reduce the effort between a scientific idea and a reproducible result.
 
-I have been enjoying working with undergraduate and graduate students coming from global institutes. I am also an associated editor in Big Data and AI in HEP in Frontiers.
-<!-- I am also an associated editor in [Big Data and AI in HEP in Frontiers](https://www.frontiersin.org/journals/big-data/sections/big-data-and-ai-in-high-energy-physics). -->
+[Explore my research]({{ '/research/' | relative_url }}){: .btn .btn--primary}
+[Get in touch](mailto:xju@lbl.gov){: .btn}
 
-# Education
-### Ph.D University of Wisconsin-Madison, March 2018
+## What I am building
 
-Dissertation: Observation of a Standard Model Higgs boson and search for additional
-heavy scalars in the $\ell\ell\ell\ell$ final state with the ATLAS detector.
+{% include research-programs.html %}
+
+## Selected work
+
+- **Tracking as a service:** separating track reconstruction from the client application so accelerator resources can be shared. [2025 paper](https://arxiv.org/abs/2501.05520).
+- **Learning to find tracks:** TrackSorter explores Transformer-based sorting for particle track finding. [Paper](https://arxiv.org/abs/2407.21290).
+- **Generative simulation:** incorporating particle flavor into deep learning models for hadronization. [Paper](https://arxiv.org/abs/2312.08453).
+
+[Selected publications and full list]({{ '/publications/' | relative_url }}) · [Talks and posters]({{ '/talks/' | relative_url }})
+
+## Working together
+
+I enjoy working with students and collaborators across physics, machine learning, and scientific computing. I welcome conversations about agentic workflows, scientific representations, and scalable inference. [Email me](mailto:xju@lbl.gov) to discuss a research connection, or explore my [mentoring record]({{ '/students/' | relative_url }}).
+
+## Education
+
+**Ph.D. in Physics, University of Wisconsin–Madison, March 2018**
+
+Dissertation: Observation of a Standard Model Higgs boson and search for additional heavy scalars in the $\ell\ell\ell\ell$ final state with the ATLAS detector.
 
 Advisor: Prof. Sau Lan Wu
-### __B.S.__ Nanjing University, July 2009
 
-Thesis: Measurement of the Top mass using the ATLAS detector
+**B.S., Nanjing University, July 2009**
+
+Thesis: Measurement of the top mass using the ATLAS detector.
 
 Advisor: Prof. Shenjian Chen
-
-<!-- ## Research Results
-![]({{ site.images }}/4l-FixedScale-NoMuPro2.gif) -->
