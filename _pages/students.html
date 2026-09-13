@@ -1,146 +1,21 @@
 ---
 layout: archive
-title: "Students"
+title: "Mentoring"
 permalink: /students/
 author_profile: true
 ---
 
-{% include base_path %}
-
-Last update is on 17 February, 2026.
-
-This page lists the students I am working or have worked with.
-
-
-<style>
-  .students-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-  }
-  .students-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  .students-table th,
-  .students-table td {
-    border: 1px solid #ccc;
-    padding: 8px;
-  }
-
-  .students-table td {
-    border: 1px solid #ccc;
-    padding: 8px;
-  }
-  .students-table td:nth-child(2) { /* Style for first column */
-    font-weight: bold;
-    white-space: nowrap;
-  }
-  .students-table td:nth-child(2):hover::after { /* Tooltip-like effect */
-    content: attr(data-tooltip);
-    position: absolute;
-    left: 20%;
-    top: 10%;
-    background-color: #ff7f50;
-    color: #fff;
-    font-size: 14px;
-    z-index: 9999;
-  }
-  .students-table td:nth-child(4) { /* display full date */
-    white-space: nowrap;
-  }
-  .students-table td:nth-child(5) { /* display full date */
-    white-space: nowrap;
-  }
-
-  .students-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    text-align: left;
-  }
-
-  .students-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-</style>
-
+<p>I enjoy working with undergraduate and graduate students across institutions. My mentoring connects a concrete physics question with hands-on work in machine learning and scientific software, with an emphasis on understanding the methods and communicating the results.</p>
 
 {% assign ongoing_students = site.students | where_exp: "student", "student.finished != true" | sort: 'date' %}
 {% assign finished_students = site.students | where_exp: "student", "student.finished == true" | sort: 'date' %}
+<p>This record includes <strong>{{ site.students.size }} students</strong>: {{ ongoing_students.size }} listed as ongoing and {{ finished_students.size }} with completed projects. Publications and subsequent positions are linked where recorded.</p>
+<p class="mentoring-record-note">Student records last reviewed February 17, 2026; positions and project status reflect that record.</p>
 
-<h2> Ongoing Students </h2>
+<h2 id="ongoing-students">Ongoing students</h2>
+{% include mentoring-table.html students=ongoing_students table_id="ongoingStudents" label="Ongoing students" %}
 
-<table class="students-table" id="ongoingStudents">
-  <thead>
-    <tr>
-      <th> # </th>
-      <th> Name </th>
-      <th> Research </th>
-      <th> Start Date </th>
-      <th> End Date </th>
-      <th> Current Position </th>
-      <th> Paper </th>
-      <th> Project </th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for student in ongoing_students reversed %}
-      <tr>
-        {% include archive-single-student.html %}
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<h2 id="former-students">Former students</h2>
+{% include mentoring-table.html students=finished_students table_id="outgoingStudents" label="Former students" %}
 
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-      const table = document.getElementById('ongoingStudents');
-      const rows = table.getElementsByTagName('tr');
-
-      for (let i = rows.length - 1; i > 0; i--) {
-        const cell = document.createElement('td');
-        cell.textContent = rows.length - i;
-        rows[i].insertBefore(cell, rows[i].firstChild);
-      }
-  });
-  </script>
-
-
-  <h2> Graduated Students </h2>
-
-  <table class="students-table" id="outgoingStudents">
-    <thead>
-      <tr>
-        <th> # </th>
-        <th> Name </th>
-        <th> Research </th>
-        <th> Start Date </th>
-        <th> End Date </th>
-        <th> Current Position </th>
-        <th> Paper </th>
-        <th> Project </th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for student in finished_students reversed %}
-        <tr>
-          {% include archive-single-student.html %}
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-        const table = document.getElementById('outgoingStudents');
-        const rows = table.getElementsByTagName('tr');
-
-        for (let i = rows.length - 1; i > 0; i--) {
-          const cell = document.createElement('td');
-          cell.textContent = rows.length - i;
-          rows[i].insertBefore(cell, rows[i].firstChild);
-        }
-    });
-
-</script>
+<p>Interested in a research connection? <a href="mailto:xju@lbl.gov">Contact me</a> with a short description of your interests and background.</p>

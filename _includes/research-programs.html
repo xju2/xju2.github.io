@@ -1,0 +1,9 @@
+<div class="research-programs">
+  {% for program in site.data.research_programs %}
+  <article class="research-program">
+    <p class="research-program__area">{{ program.area | escape }}</p>
+    <h3><a href="{{ program.url | relative_url }}">{{ program.name | escape }}</a></h3>
+    <p>{{ program.summary | escape }}</p>
+  </article>
+  {% endfor %}
+</div>

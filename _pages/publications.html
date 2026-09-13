@@ -4,26 +4,26 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
-{% include base_path %}
+<p>Selected work connecting scientific machine learning, reconstruction, and computing infrastructure. See <a href="{{ site.author.googlescholar }}">Google Scholar</a> and <a href="{{ site.author.inspirehep }}">INSPIRE</a> for broader publication and citation records.</p>
 
-{% if page.author and site.data.authors[page.author] %}
-  {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.author %}
-{% endif %} 
-
-
-Last updated on 20 Mar, 2024.
-<!-- Total 39 publications with a total of 14,907 citations excluding self-citations (obtained through the 
-<a href="{{author.inspirehep}}">Inspire Hep</a> database). Only publications with major contributions are listed. -->
-
-
-{% capture written_year %}'None'{% endcapture %}
-<ol reversed>
-{% for post in site.publications reversed %}
-  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-  {% if year != written_year %}
-    <h2 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h2>
-    {% capture written_year %}{{ year }}{% endcapture %}
-  {% endif %}
-  {% include archive-single-pub.html %}
+<h2>Selected publications</h2>
+{% assign selected = site.publications | where_exp: "paper", "paper.selected_order != nil" | sort: "selected_order" %}
+<ul class="selected-work">
+{% for paper in selected %}
+  <li><a href="{{ paper.link | escape }}">{{ paper.title | escape }}</a><br><span>{{ paper.venue | escape }} · {{ paper.date | date: '%Y' }}</span></li>
 {% endfor %}
+</ul>
+
+<h2>Full publication list</h2>
+{% assign publications = site.publications | where_exp: "paper", "paper.duplicate != true" | sort: "date" | reverse %}
+{% assign years = publications | group_by_exp: "paper", "paper.date | date: '%Y'" %}
+{% assign remaining = publications.size %}
+{% for year in years %}
+<h3 id="{{ year.name }}" class="archive__subtitle">{{ year.name }}</h3>
+<ol reversed start="{{ remaining }}">
+  {% for post in year.items %}
+    {% include archive-single-pub.html %}
+  {% endfor %}
 </ol>
+{% assign remaining = remaining | minus: year.items.size %}
+{% endfor %}
