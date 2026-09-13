@@ -45,19 +45,3 @@ libraries and the remaining theme compatibility layer are documented in
 Pull requests are built and smoke-tested without deployment. Production builds
 from `master` use the explicit GitHub Pages workflow described in
 [`docs/pages-deployment.md`](docs/pages-deployment.md).
-
-## CV PDF
-
-The Makefile's default target continues to build `tex_files/main.tex`:
-
-```bash
-make
-```
-
-A LaTeX installation containing `pdflatex` is required for that target.
-
-## Publication metadata tooling
-
-The Python package in `src/cvmgr` manages publication and CV metadata. Its
-environment is defined by `pyproject.toml` and `uv.lock`; it is independent
-of the Jekyll website build.

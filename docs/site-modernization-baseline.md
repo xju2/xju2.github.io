@@ -35,11 +35,11 @@ The following are local features, not disposable template examples:
 - `_includes/archive-single-student.html`
 - Publication and talk archive includes
 - The custom `talk` layout
-- Publication, talk, teaching, student, and portfolio collections
+- Publication, talk, student, and portfolio collections
 - Redirects declared in page front matter
 - Google Analytics configuration
 - MathJax rendering
-- The talk map and downloadable PDFs
+- The talk map
 - The custom domain
 
 ## Required public routes

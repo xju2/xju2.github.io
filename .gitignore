@@ -3,5 +3,4 @@ _site/
 .jekyll-metadata
 vendor/bundle/
 .bundle/
-build/
-*.pyc
+.vscode/

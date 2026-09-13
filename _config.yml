@@ -134,7 +134,6 @@ exclude:
   - .bundle
   - .jekyll-assets-cache
   - .sass-cache
-  - CHANGELOG
   - Capfile
   - Gemfile
   - Gruntfile.js
@@ -182,9 +181,6 @@ kramdown:
 
 # Collections
 collections:
-  teaching:
-    output: true
-    permalink: /:collection/:path/
   publications:
     output: true
     permalink: /:collection/:path/
@@ -219,15 +215,6 @@ defaults:
     values:
       layout: academic
       author_profile: true
-  # _teaching
-  - scope:
-      path: ""
-      type: teaching
-    values:
-      layout: academic
-      author_profile: true
-      share: false
-      comments: true
   # _publications
   - scope:
       path: ""
