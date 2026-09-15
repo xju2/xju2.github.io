@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 <div class="research-intro" markdown="1">
-I build AI systems that connect scientific intent with data, software, and large-scale computing. At Berkeley Lab, I develop agentic scientific workflows, foundation models, and inference infrastructure, with applications in particle physics and cosmology.
+I build AI systems that connect scientific intent with data, software, and large-scale computing. At Berkeley Lab, I develop machine-learning methods and inference infrastructure for particle physics.
 </div>
 
 I am a Computing System Engineer in the Scientific Data Division at Lawrence Berkeley National Laboratory and a member of the ATLAS Collaboration at the Large Hadron Collider. My research asks how AI and high-performance computing can reduce the effort between a scientific idea and a reproducible result.
@@ -17,7 +17,7 @@ I am a Computing System Engineer in the Scientific Data Division at Lawrence Ber
 [Explore my research]({{ '/research/' | relative_url }}){: .btn .btn--primary}
 [Get in touch](mailto:xju@lbl.gov){: .btn}
 
-## What I am building
+## Featured infrastructure
 
 {% include research-programs.html %}
 

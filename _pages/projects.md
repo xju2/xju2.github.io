@@ -3,32 +3,10 @@ layout: archive
 title: "Software & Projects"
 permalink: /projects/
 author_profile: true
-excerpt: "Agentic workflows, scientific foundation models, and shared inference infrastructure."
+excerpt: "Shared inference infrastructure and machine learning for particle tracking."
 ---
 
-I develop systems that connect machine learning to scientific data and computing. These projects span active research and deployed infrastructure; the descriptions distinguish their goals from published results.
-
-## HepGateway
-
-**Focus: agentic AI for scientific workflows · Active development**
-
-Scientists need to coordinate data access, software environments, job execution, and interpretation. I am developing HepGateway to bring these interactions into a unified platform connected to HPC resources, with NERSC as the initial deployment setting.
-
-An analysis is represented as a typed executable graph. Work nodes use AI agents to transform input artifacts into schema-validated outputs. Control nodes evaluate outputs and decide what runs next, including bounded revision loops. AI agents carry out workflow actions; machine-learning models remain scientific tools that those workflows can use.
-
-The evaluation goal is to reproduce a published analysis and measure manual interventions, time to a successful result, and provenance coverage. This is ongoing work, with evaluation results still to come.
-
-[Discuss HepGateway](mailto:xju@lbl.gov?subject=HepGateway)
-
-## Foundational Universe
-
-**Focus: foundation models for scientific fields · Research in progress**
-
-Large simulations contain rich structure that is expensive to store and difficult to model jointly. I am studying compact learned representations of Nyx cosmological simulations, which contain six physical fields defined on a three-dimensional grid.
-
-The approach uses a VQ-VAE with residual vector quantization to turn simulation chunks into discrete tokens. A hierarchical autoregressive model is being developed to capture dependencies across spatial regions, sites, and quantization levels. The goal is to support high-fidelity generation and transfer to downstream scientific tasks while testing what physical information survives compression.
-
-[Discuss scientific field models](mailto:xju@lbl.gov?subject=Foundational%20Universe)
+I develop systems that connect machine learning to scientific data and computing. This page highlights inference infrastructure and published reconstruction methods.
 
 ## Inference as a Service
 
@@ -50,4 +28,4 @@ Track finding turns large point clouds of detector measurements into particle tr
 
 [TrackSorter](https://arxiv.org/abs/2407.21290) · [Geometric deep learning for hyperon tracking](https://arxiv.org/abs/2503.14305) · [Recent presentation]({{ '/talks/2025-11-09' | relative_url }})
 
-For publicly available software, see my [GitHub profile](https://github.com/xju2). For projects without a public release, please [get in touch](mailto:xju@lbl.gov).
+For publicly available software, see my [GitHub profile](https://github.com/xju2).

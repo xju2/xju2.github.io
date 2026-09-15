@@ -1,11 +1,3 @@
-- name: HepGateway
-  area: Agentic scientific workflows
-  summary: Connecting scientific intent to executable workflows across data, software, and HPC resources, with explicit control and provenance.
-  url: /projects/#hepgateway
-- name: Foundation Models for Scientific Fields
-  area: Representations and generation
-  summary: Learning compact representations of large simulation fields and studying how they support generation and downstream scientific tasks.
-  url: /projects/#foundational-universe
 - name: Inference as a Service
   area: Scalable ML infrastructure
   summary: Bringing GPU-accelerated models to physics applications through shared inference services and integration with HPC facilities.
