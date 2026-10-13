@@ -4,12 +4,12 @@ name: "Arihant Avinash Kaul"
 project: URAP
 permalink: /students/s27/kaul/
 date: 2025-02-07
-end_date:
+end_date: 2025-12-30
 institution: UC, Berkeley
 department: Electrical Engineering and Computer Sciences
 position: undergraduate student
 current_position:
-finished: false
+finished: true
 excerpt: AI Explainability and Interpretability
 paper:
 ---

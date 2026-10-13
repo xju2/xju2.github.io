@@ -9,8 +9,8 @@ author_profile: true
 
 {% assign ongoing_students = site.students | where_exp: "student", "student.finished != true" | sort: 'date' %}
 {% assign finished_students = site.students | where_exp: "student", "student.finished == true" | sort: 'date' %}
-<p>This record includes <strong>{{ site.students.size }} students</strong>: {{ ongoing_students.size }} listed as ongoing and {{ finished_students.size }} with completed projects. Publications and subsequent positions are linked where recorded.</p>
-<p class="mentoring-record-note">Student records last reviewed February 17, 2026; positions and project status reflect that record.</p>
+<p>This record includes <strong>{{ site.students.size }} students</strong>: {{ ongoing_students.size }} listed as ongoing and {{ finished_students.size }} with completed projects.</p>
+<p class="mentoring-record-note">Last reviewed: October, 2026.</p>
 
 <h2 id="ongoing-students">Ongoing students</h2>
 {% include mentoring-table.html students=ongoing_students table_id="ongoingStudents" label="Ongoing students" %}
