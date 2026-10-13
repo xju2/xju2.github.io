@@ -1,0 +1,107 @@
+\documentclass[a4paper, 12pt]{extarticle}
+
+% setup page styles 
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    total={170mm, 257mm},
+    left=20mm,
+    top=20mm
+}
+%\pagenumbering{gobble}
+% end
+
+%\usepackage{lineno}
+%\linenumbers
+
+\usepackage{xspace}
+\usepackage{libertine}
+\usepackage{amsmath}
+%% define new commands
+\newcommand\pe{\ensuremath{\mathcal{P}}}
+\newcommand\se{\ensuremath{\mathcal{S}}}
+\newcommand\ac{\ensuremath{\mathcal{C}}}
+\newcommand{\totalpub}{614}  %%How to find co-authored total publication
+\newcommand{\me}{I}
+\newcommand*{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+\newcommand\llll{\ensuremath{\ell^+\ell^-\ell^+\ell^-}\xspace}
+\newcommand\llvv{\ensuremath{\ell^+\ell^-\nu\bar{\nu}}\xspace}
+\newcommand\HZZ{\ensuremath{H\to ZZ}\xspace}
+
+
+\usepackage{hyperref} % Required for adding links	and customizing them
+\hypersetup{colorlinks, breaklinks, urlcolor=blue, linkcolor=black} % Set link colors
+
+%\renewenvironment{description}{
+  %\setlength{\leftmargini}{0em}
+  %\origdescription
+  %\setlength{\itemindent}{0em}
+  %\setlength{\labelsep}{\textwidth}
+%}
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection*{Contact Information} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{centering}
+    \textbf{\Large{XIANGYANG JU}} \\
+    \vspace{0.3cm}
+    \href{mailto:xju@lbl.gov}{xju@lbl.gov}, \href{https://www.ml4phys.com}{https://www.ml4phys.com}, \href{https://github.com/xju2}{github.com/xju2}, \href{https://orcid.org/0000-0002-9745-1638}{ORCID 0000-0002-9745-1638} \\
+\end{centering}
+
+\section*{Research Summary}
+I build HPC-native AI systems that connect scientific intent with data, software, and large-scale computing. At Lawrence Berkeley National Laboratory, I develop machine-learning methods and inference infrastructure for particle physics as a member of the ATLAS Collaboration at the Large Hadron Collider. My research asks how AI and high-performance computing can reduce the effort between a scientific idea and a reproducible result.
+
+\section*{Education}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+    \item[] \textbf{Ph.D.} in Physics (Experimental Particle Physics), \href{http://www.wisc.edu}{University of Wisconsin-Madison}, March 2018
+\newline \indent Dissertation topic: Observation of a Standard Model Higgs boson and search for additional heavy scalars in the $\llll$ final state with the ATLAS detector.
+\newline \indent Advisor: Prof. Sau Lan Wu
+%\item \textbf{Research Assistant}, 08/2009-09/2011
+%\newline \indent University: \href{http://www.uregina.ca/}{University of Regina}, Canada
+%\newline \indent Subject: data quality, search for doubly-charged Higgs
+    \item[] \textbf{B.S.} \href{http://www.nju.edu.cn/}{Nanjing University},   July 2009
+\newline \indent Thesis: Measurement of the Top mass using the ATLAS detector
+\newline \indent Advisor: Prof. Shenjian Chen
+\end{itemize}
+
+\section*{Employment}
+\begin{itemize}
+    \item[] November 2021 - Present, Computing System Engineer, Scientific Data Division, Lawrence Berkeley National Laboratory, US.
+    \item[] April 2018 - November 2021, High Performance Computing Postdoctoral Scholar, Lawrence Berkeley National Laboratory, US.
+    \item[] August 2011 - March 2018, Research/Teaching assistant, University of Wisconsin-Madison, US.
+    \item[] August 2009 - August 2011, Research assistant, University of Regina, Canada.
+\end{itemize}
+
+\section*{Award}
+\begin{itemize}
+    \item Distinguished Researcher Award from the US ATLAS Center, August 2017.
+\end{itemize}
+
+\section*{Synergistic Activities}
+
+\begin{enumerate}
+    \item Developer of \textbf{Inference as a Service} infrastructure for ATLAS, combining NVIDIA Triton Inference Server with Athena integration and deployments at NERSC and the University of Chicago Analysis Facility.
+    \item Key developer of Graph Neural Network-based (ExaTrkX, GNN4ITk) and Transformer-based (TrackSorter) track finding algorithms for \textbf{High Energy Physics particle tracking data}.
+    \item \textbf{Technical Lead} of High Energy Physics - Center for Computational Excellence (HEP-CCE) on the Scaling Machine Learning Area (2024-present).
+    \item Machine Learning Architecture and Infrastructure Facilitator at the ATLAS experiment at the Large Hadron Collider at CERN (2024-present)
+    \item Affiliate of the "Accelerated AI Algorithms for Data-Driven Discovery" (\textbf{A3D3}) institue funded by NSF under the HDR program.
+\end{enumerate}
+
+\input{rs}
+
+\input{publication}
+
+\input{teaching}
+
+\input{talks}
+
+
+
+\end{document}

@@ -1,0 +1,143 @@
+\section*{Research Experience}
+
+\noindent\textbf{2022 - present, Scalable Inference and HPC Integration}
+\begin{itemize}
+    \item \textit{Inference as a Service} Developing inference services and client integration that let multiple physics applications share GPU resources, combining NVIDIA Triton Inference Server with ATLAS Athena and deployments at NERSC and the University of Chicago Analysis Facility. Current studies examine concurrency, load balancing, autoscaling, and end-to-end performance.
+    \item \textit{Tracking as a service} Separated track reconstruction from the client application so accelerator resources can be shared. \href{https://doi.org/10.1088/1748-0221/20/06/P06002}{JINST 20 (2025) P06002}; \href{https://arxiv.org/abs/2402.09633}{arXiv:2402.09633}.
+    \item \textit{Unified ML inference interface} Implemented a common ONNXRuntime-based inference interface in Athena for the ATLAS Collaboration, adopted by various groups.
+\end{itemize}
+
+\noindent\textbf{2023 - present, Transformer Models for Particle Tracking and Simulation}
+\begin{itemize}
+    \item \textit{Token-based Transformers for track finding} Developed TrackingBERT and TrackSorter, which treat detector hits as tokens and learn to sort them into tracks; extending the approach with learned tokenization and to simulation of particle interactions with matter. \href{https://arxiv.org/abs/2402.10239}{arXiv:2402.10239}; \href{https://arxiv.org/abs/2407.21290}{arXiv:2407.21290}.
+    \item \textit{Generative simulation} Deep generative models for hadronization and hadronic interactions, including particle flavor. \href{https://doi.org/10.1007/JHEP09(2023)084}{JHEP 09 (2023) 084}; \href{https://arxiv.org/abs/2312.08453}{arXiv:2312.08453}; \href{https://arxiv.org/abs/2310.07553}{arXiv:2310.07553}.
+\end{itemize}
+
+\noindent\textbf{2019 - 2022, Machine Learning-based Event Reconstructions}
+
+\medskip
+My research work advances the event reconstructions in the High Energy Physics by using graph neural network (GNN).
+
+\begin{itemize}
+    \item \textit{GNN for tracking reconstruction}: Developed an machine learning (ML)-based end-to-end tracking pipeline for the High-Luminosity LHC (HL-LHC). Its core part is the Interaction Network. It scales better than traditional tracking algorithm does, making it a promising candidate for future experiments. \href{https://arxiv.org/abs/2103.06995}{arXiv:2103.06995}; \href{https://iopscience.iop.org/article/10.1088/1748-0221/16/05/P05001}{JINST 16 P05001}; \href{https://arxiv.org/abs/2007.00149}{arXiv:2007.00149}; \href{https://arxiv.org/abs/2003.11603}{arXiv:2003.11603}.
+    
+    \item \textit{GNN for supervised jet clustering}: Traditional jet clustering methods are unsupervised. For the first time, we demonstrated that it is advantageous to use supervised methods based on ML to do jet clustering. The same Interaction Network was used! \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.102.075014}{Phs. Rev. D 102, 075014 (2020)}.
+    
+    \item \textit{GNN for top reconstruction}: It is a combinatorial problem to reconstruct all hadronically decayed top quarks. Preliminary studies show that GNN achieves promising results. A preprint is under preparation.
+    % \item \textit{Distributed GNN training} I performed a comparison of TPU and GPU platforms 
+\end{itemize}
+
+\noindent\textbf{2018 - Present, Generator and detector simulation tuning with detector-level data using HPC}
+\begin{itemize}
+    % \item Goal is to achieve scientific discovery through high performance computers (HPC)
+    \item Developed a configurable fast detector-simulation package for the ATLAS and CMS detectors under the Rivet analysis framework.
+    \item First demonstrated that generator parameters can be tuned with detector-level data using the above package.
+    \item The two developments allow a great deal of new data to event generator tuning applications and offer an automatic way to examine detector resolutions and efficiencies in complex kinematic phase spaces. A preprint is under preparation.
+    \item Developed a performant Message Passing Interface (MPI)-based parallelism for efficiently running Pythia8 generators in an HPC environment, \href{https://arxiv.org/abs/2103.05748}{arXiv:2103.05748}, \href{https://github.com/HEPonHPC/apprentice}{Apprentices}, and I integrated the MPI parallelism into a fast-simulation workflow that helped ATLAS experiment to generate billions of simulated events for the search for the Higgs boson in the dimuon events. \href{https://gitlab.cern.ch/xju/powheginlinegen}{PowhegInlineGen}.
+    
+    \item Developed a JAX-based auto-tune package for tuning generator parameters. It accepts customized objective functions and minimizes the function via gradient-based optimization methods.
+\end{itemize}
+
+
+\noindent\textbf{2019 - Present, Search for new physics using the Higgs boson as a portal}
+\begin{itemize}
+    \item \textit{Search for the Higgs boson in the di-muon final state}: To control the statistic uncertainties of the background events at a desirable level, I generated billions of fast simulated events within a day by using up to 2048 CPU cores in super computer center, thanks to the package I developed for High Performance Computers. As a result, the search sensitivities was increased by 3 to 5\%. It would not be possible for ATLAS to generate so many events in such a short amount of time. \href{https://www.sciencedirect.com/science/article/pii/S0370269320307838}{Phys. Lett. B 812 (2021) 135980}
+
+    \item \textit{CP properties of Higgs boson interactions with top quarks using $H \rightarrow \gamma\gamma$}: Machine learning architectures, specifically the Boost Decision Tree, were used not only to better reject background events but also to separate CP-even and CP-odd events. I provided technical support in training the BDTs. \href{https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.061802}{Phys. Rev. Lett. 125. 061802}
+    
+    \item \textit{Search for heavy resonances decaying into a pair of $Z$ boson}: Deep learning architectures, including multilayer perceptrons and recurrent neural network, were used to distinguish signal events from the background events. 20 to 40\% improvement in the search sensitivities was achieved. \href{https://link.springer.com/article/10.1140/epjc/s10052-021-09013-y}{Eur. Phys. J. C 81, 332 (2021)}.
+\end{itemize}
+
+
+\noindent\textbf{2016 - 2019, Search for beyond the Standard Model resonances in di-boson final states}
+\begin{itemize}
+    \item  \textbf{Search for heavy ZZ resonances in the \llll and \llvv final states} \newline
+        Led the analysis team as analysis contact person and publication editor.
+        Several novel techniques were first time introduced to this analysis: using analytic
+        functions to model the four-lepton invariant mass for signal and background events, 
+        interpreting results for large-width hypotheses, and properly taking into
+        account the interference effects. I made the combination of the \llll and \llvv final states.
+        I am one of the three publication editors for this analysis using  full LHC Run 2 data.
+        \href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-19/}{Eur. Phys. J. C 78 (2018) 293}
+    \item \textbf{Search for heavy resonances in the diphoton events at $\sqrt{s} = 13$}~TeV \newline
+        Led the efforts in measuring the purity of prompt diphoton events in signal regions as an internal
+        note editor. Prepared for the analysis team with pre-selected data that ensures consistency and correctness among all analyzers. Estimated the global significance of an excess with diphoton invariant mass around 750 GeV 
+        based on the 2D Random Field method
+        and pseudo-experiments.
+        \href{http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-17/}{Phys. Lett. B 775 (2017) 105}
+    \item \textbf{Search for heavy ZZ resonances in the $\ell^+\ell^- qq$ and $\nu\nu qq$ final states} \newline
+        Combined the results from the $\ell^+\ell^- qq$ and $\nu\nu qq$ final states.
+        \href{https://link.springer.com/article/10.1007/JHEP03(2018)009}{JHEP 03 (2018) 009}
+    \item \textbf{Search for heavy resonances in bosonic final states} \newline
+        Combined the results from the $\ell^+\ell^-\ell^+\ell^-$, $\ell^+\ell^-\nu\nu$, $\ell^+\ell^- qq$ and $\nu\nu qq$ final states.
+        \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.98.052008}{Phys. Rev. D 98 (2018) 052008}
+\end{itemize}
+
+\noindent\textbf{2015 - 2017, Search for dark matter (DM) in mono-jet and mono-Higgs final states}
+\begin{itemize}
+    \item I was one of the editors for the ``white paper'' published by the LHC Dark Matter forum. 
+        Studied experimental features of the DM Benchmark Models, 
+        particularly the mono-Higgs models. 
+        Proposed and implemented the parameters for the mono-Higgs models
+        that later served as the back-bone of the DM searches at the LHC.
+        \href{https://www.sciencedirect.com/science/article/pii/S2212686419301712}{Phys. Dark Univ. 27 (2020) 100371}
+    \item  \textbf{Search for DM in the final state with an energetic jet and large missing transverse momentum} (mono-jet) \newline
+        Optimized the event selections for 13~TeV data. 
+        Studied signal modeling. 
+        Used jet-smearing method to estimate
+        the multiple-jets background.
+        Checked the control regions for W/Z/$t\bar{t}$ backgrounds to make sure
+        all the background modelings are correct.
+        \href{https://link.springer.com/article/10.1007/JHEP01(2018)126}{JHEP 01 (2018) 126}
+    \item Made first public result on the search for DM in the mono-Higgs final state using the 
+        first 13~TeV $pp$ collisions data for the End of Year Event 2015.
+        \href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2015-059}{ATLAS-CONF-2015-059}.
+        
+        
+    \item Led a team in developing a statistical analysis framework for $H\to ZZ$ analysis.
+        It builds a combined likelihood model of the 
+        ZZ events in multiple categories, based on either analytic functions or Monte 
+        Carlo templates or simply number of events. It is used for all 
+        the publications of the \llll analyses since 2015.
+\end{itemize}
+
+\noindent\textbf{2012 - 2014, Measurement of the Higgs boson properties in the \llll final state}
+\begin{itemize}
+    \item Introduced and implemented an innovative two-dimensional fitting method for 
+        Higgs coupling measurement. This method reduces the error of the signal 
+        strength by 25\% in the VBF production in the \llll final state.
+        \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.91.012006}{Phys. Rev. D 91 (2015) np.1, 012006}
+    \item Performed first measurements on the signal strengths of 
+        various Higgs boson production modes in the \llll final states.
+        % \href{http://inspirehep.net/record/1311990}{Phys. Rev. D 91 (2015) no.1, 012006}
+        
+    \item Served as one of the internal note editors for the publication 
+        of the Higgs coupling measurement in the \llll final state in 2013.
+    \item Proposed an innovative two-dimensional fitting method for the Higgs mass measurement. 
+        The innovative method reduces the statistical error by 8\% leading to the best Higgs mass measurement 
+        in the \llll final state at that time.
+\end{itemize}
+
+\noindent\textbf{2011 - 2012, Discovery of the Standard Model Higgs boson in the \llll final state}
+\begin{itemize}
+    \item Optimized the \llll event selections for the Higgs boson discovery.
+    \item Proposed and implemented a novel method for evaluating the reducible background in the $4e$ and 
+        $2\mu2e$ channels for the Higgs boson discovery.
+    \item Processed data and delivered the statistical results for all ATLAS public 
+        results on the \llll analyses between 2011 and 2012, including the final statistical 
+        significance for the Higgs boson discovery on July 4, 2012.
+        \href{http://www.sciencedirect.com/science/article/pii/S037026931200857X}{Phys. Lett. B 716 (2012) 1-29}
+    \item Gave the approval talk for the Higgs discovery on behalf of the four-lepton analysis team 
+        in the Higgs working group on June 15, 2012.
+\end{itemize}
+
+\noindent\textbf{2009 - 2011, Detector performance studies with early LHC data with University of Regina, Canada}
+\begin{itemize}
+    % \item Configured the on-line trigger monitoring for data taking.
+    % \item Measured the noises in electromagnetic calorimeter. (authorship qualification task)
+    % \item Online data quality monitoring (operation contribution)
+    \item Measured the electron efficiency for the first observation of the $W$ and $Z$ bosons in ATLAS with 
+        280~$nb^{-1}$ $\sqrt{s} = 7$~TeV data.
+    % \item Developed all toolkit to look for doubly-charged Higgs, including MC 
+        % simulation, event selections, background estimates and exclusion limits.
+\end{itemize}
